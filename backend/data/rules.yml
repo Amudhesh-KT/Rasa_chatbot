@@ -1,0 +1,59 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Give list of PR when user asks for it
+  steps:
+  - intent: prrequest
+  - action: action_pr_list
+
+- rule: Give list of PO when user asks for it
+  steps:
+  - intent: porequest
+  - action: action_po_list
+
+- rule: Give list of PR items when user gives prnumber
+  steps:
+  - intent: prrequestno
+  - action: action_pr_items
+
+- rule: Give list of PO items when user gives ponumber
+  steps:
+  - intent: porequestno
+  - action: action_po_items
+
+- rule: Give PR Item Description when user gives pr item number
+  steps:
+  - intent: pritems
+  - action: action_pr_item_desc
+
+- rule: Give PO Item Description when user gives po item number
+  steps:
+  - intent: poitems
+  - action: action_po_item_desc
+
+- rule: Give Company Policies when user asks for it
+  steps:
+  - intent: policies
+  - action: action_company_policy
+
+# - rule: Give list of PR item description when user asks for it
+#   steps:
+#   - intent: pritemdesc
+#   - action: action_pr_item_desc
+
+- rule: Give the time when uses asks for it
+  steps:
+  - intent: give_time
+  - action: action_show_time
+

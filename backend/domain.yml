@@ -1,0 +1,111 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - prrequest
+  - porequest
+  - prrequestno
+  - porequestno
+  - pritems
+  - poitems
+  - give_time
+  - policies
+
+actions:
+  - action_show_time
+  - action_pr_list
+  - action_po_list
+  - action_pr_items
+  - action_po_items
+  - action_pr_item_desc
+  - action_po_item_desc
+  - action_company_policy
+
+entities:
+  - pr_number:
+      type: regex
+      pattern: "[0-9]{8}"
+  - po_number:
+      type: regex
+      pattern: "[0-9]{10}"
+  - pr_itemnumber:
+      type: regex
+      pattern: "^[0-9]{3,6}$"
+  - po_itemnumber:
+      type: regex
+      pattern: "^[0-9]{3,6}$"
+slots:
+  prnumber:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pr_number
+    
+  ponumber:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: po_number
+
+  other_slot:
+    type: float
+    mappings:
+    - type: from_entity
+      entity: pr_number
+
+  other_slot2:
+    type: float
+    mappings:
+    - type: from_entity
+      entity: po_number
+  
+  pritemnumber:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pr_itemnumber
+
+  poitemnumber:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: po_itemnumber
+
+responses:
+
+  utter_greet:
+  - text: "Hey! How are you?"
+  - text: "hello, how you doing?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  # utter_givepr:
+  # - text: "Here your list of PR's:{temp}"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
