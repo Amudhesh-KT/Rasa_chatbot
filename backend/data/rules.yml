@@ -57,3 +57,134 @@ rules:
   - intent: give_time
   - action: action_show_time
 
+#POLICIES#
+- rule: Give Corporate Attire Policies when user asks for it
+  steps:
+  - intent: corporateattirepolicies
+  - action: action_corporateattirepol
+
+- rule: Give Over-time Policies when user asks for it
+  steps:
+  - intent: over-timepolicies
+  - action: action_over-timepol
+
+- rule: Give Probation Policies when user asks for it
+  steps:
+  - intent: probationpolicies
+  - action: action_probationpol
+
+- rule: Give Leave Policies when user asks for it
+  steps:
+  - intent: leavepolicies
+  - action: action_leavepol
+
+- rule: Give Travel Policies when user asks for it
+  steps:
+  - intent: travelpolicies
+  - action: action_travelpol
+
+- rule: Give Reimbursements Policy when user asks for it
+  steps:
+  - intent: ReimbursementsPolicy
+  - action: action_ReimbursementsPolicy
+
+- rule: Give Separation Policy when user asks for it
+  steps:
+  - intent: SeparationPolicy
+  - action: action_SeparationPolicy
+
+- rule: Give Office Resumption Policy when user asks for it
+  steps:
+  - intent: OfficeResumptionPolicy
+  - action: action_OfficeResumptionPolicy
+
+- rule: Give Interview Panel Policy when user asks for it
+  steps:
+  - intent: InterviewPanelPolicy
+  - action: action_InterviewPanelPolicy
+
+- rule: Give WFH Policy when user asks for it
+  steps:
+  - intent: WFHPolicy
+  - action: action_WFHPolicy
+
+- rule: Give Appraisal Policy when user asks for it
+  steps:
+  - intent: AppraisalPolicy
+  - action: action_AppraisalPolicy
+
+- rule: Give Certification Policy when user asks for it
+  steps:
+  - intent: CertificationPolicy
+  - action: action_CertificationPolicy
+
+- rule: Give Deputation Policy when user asks for it
+  steps:
+  - intent: DeputationPolicy
+  - action: action_DeputationPolicy
+
+- rule: Give addl billing hours Policies when user asks for it
+  steps:
+  - intent: addlbillinghourspolicies
+  - action: action_addlbillinghrspol
+
+- rule: Give expense mgmt system policies when user asks for it
+  steps:
+  - intent: expensemgmtsystempolicies
+  - action: action_expensemgmtsystem
+
+- rule: Give FTF Buckets Policy when user asks for it
+  steps:
+  - intent: FTFBucketsPolicy
+  - action: action_ftfbucketspolicy
+
+- rule: Give Internal Complaints Committee Policy when user asks for it
+  steps:
+  - intent: InternalComplaintsCommitteePolicy
+  - action: action_InternalComplaintsCommitteePolicy
+
+- rule: Give Training Policy when user asks for it
+  steps:
+  - intent: TrainingPolicy
+  - action: action_TrainingPolicy
+
+- rule: Give WorkingHoursPolicy when user asks for it
+  steps:
+  - intent: WorkingHoursPolicy
+  - action: action_WorkingHoursPolicy
+
+- rule: Give EmployeeSoftLoan Policies when user asks for it
+  steps:
+  - intent: EmployeeSoftLoanPolicy
+  - action: action_EmployeeSoftLoanPolicy
+
+- rule: Give LaptopDamagePolicy when user asks for it
+  steps:
+  - intent: LaptopDamagePolicy
+  - action: action_LaptopDamagePolicy
+
+- rule: Give OddHourCommutePolicy when user asks for it
+  steps:
+  - intent: OddHourCommutePolicy
+  - action: action_OddHourCommutePolicy
+
+- rule: Give PerformanceAppraisalPolicy when user asks for it
+  steps:
+  - intent: PerformanceAppraisalPolicy
+  - action: action_PerformanceAppraisalPolicy
+
+- rule: Give RewardsandRecognitionPolicy when user asks for it
+  steps:
+  - intent: RewardsandRecognitionPolicy
+  - action: action_RewardsandRecognitionPolicy
+
+- rule: Give RemoteworkingPolicy when user asks for it
+  steps:
+  - intent: RemoteworkingPolicy
+  - action: action_RemoteworkingPolicy
+
+- rule: Give TimesheetPolicy when user asks for it
+  steps:
+  - intent: TimesheetPolicy
+  - action: action_TimesheetPolicy
+#POLICIES#

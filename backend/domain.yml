@@ -16,6 +16,32 @@ intents:
   - poitems
   - give_time
   - policies
+  - corporateattirepolicies
+  - over-timepolicies
+  - probationpolicies
+  - leavepolicies
+  - travelpolicies
+  - addlbillinghourspolicies
+  - expensemgmtsystempolicies
+  - FTFBucketsPolicy
+  - InternalComplaintsCommitteePolicy
+  - ReimbursementsPolicy
+  - SeparationPolicy
+  - OfficeResumptionPolicy
+  - InterviewPanelPolicy
+  - WFHPolicy
+  - AppraisalPolicy
+  - CertificationPolicy
+  - DeputationPolicy
+  - TrainingPolicy
+  - WorkingHoursPolicy
+  - EmployeeSoftLoanPolicy
+  - LaptopDamagePolicy
+  - OddHourCommutePolicy
+  - PerformanceAppraisalPolicy
+  - RewardsandRecognitionPolicy
+  - RemoteworkingPolicy
+  - TimesheetPolicy
 
 actions:
   - action_show_time
@@ -26,6 +52,32 @@ actions:
   - action_pr_item_desc
   - action_po_item_desc
   - action_company_policy
+  - action_corporateattirepol
+  - action_over-timepol
+  - action_probationpol
+  - action_leavepol
+  - action_travelpol
+  - action_addlbillinghrspol
+  - action_expensemgmtsystem
+  - action_ftfbucketspolicy
+  - action_InternalComplaintsCommitteePolicy
+  - action_ReimbursementsPolicy
+  - action_SeparationPolicy
+  - action_OfficeResumptionPolicy
+  - action_InterviewPanelPolicy
+  - action_WFHPolicy
+  - action_AppraisalPolicy
+  - action_CertificationPolicy
+  - action_DeputationPolicy
+  - action_TrainingPolicy
+  - action_WorkingHoursPolicy
+  - action_EmployeeSoftLoanPolicy
+  - action_LaptopDamagePolicy
+  - action_OddHourCommutePolicy
+  - action_PerformanceAppraisalPolicy
+  - action_RewardsandRecognitionPolicy
+  - action_RemoteworkingPolicy
+  - action_TimesheetPolicy
 
 entities:
   - pr_number:
@@ -105,6 +157,10 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_infoabtcomp:
+  - text: "Founded in 2005, Kaar Technologies is a global IT firm focussed on providing SAP services like SAP ERP Implementation, SAP Upgrade, SAP Rollout, SAP module implementation and SAP Support Services for different verticals in the industry like Oil & Gas, Petrochemicals, Manufacturing, Public Sectors, Engineering & Construction, Transportation, Education, Healthcare, Media and FMCG. With a strong base of 750 SAP associates and through many successful ventures and partnerships, Kaar has completed over 1000 SAP projects and worked with many reputed organizations world over. Kaar Tech has expanded its workforce to over 1200 employees and has developed five proprietary solutions, namely KEBS, KTern.AI, KUPEX, PMPA, and CPS. The company's motto, 'In Pursuit of Excellence,' is reflected in its 25+ SAP Awards for Delivery Excellence in over 15 global locations, where they provide SAP Digital Transformation Consultations and Services.
+Kaar Tech's portfolio of solutions includes Cloud, Analytics, IoT, Blockchain, RPA, AI/ML, ERP, Supply Chain, HCM, Procurement, and Mobility solutions, all of which have been pioneered by leveraging SAP's digital offerings and the company's indigenous innovations"
 
 session_config:
   session_expiration_time: 60
