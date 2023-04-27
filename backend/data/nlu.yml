@@ -17,6 +17,7 @@ nlu:
     - goodevening
     - good afternoon
     - Habibi
+    - Hola amigos
 
 - intent: goodbye
   examples: |
