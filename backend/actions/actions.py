@@ -80,31 +80,31 @@ class ActionCompanyPolicy(Action):
     ) -> List[Dict[Text, Any]]:
         policies = [
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Corporate%20Attire%20Policy.pdf?csf=1&web=1&e=nhNR98",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/ESi_WHpAvMxGjlr_bh1f8Q0B3sA-bvcA2MOVpvrlOn2Pww?e=Wxln2N",
                 "tag": "Corporate attire policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EYx8kvvCRpRAkurURg-yj2kB5xQSSg4a80GBF17us8-LZg?e=aTc8f0",
                 "tag": "Over-time policy",
             },
             {
-                "link": "India- https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Leave%20Policy%20-%20India.pdf?csf=1&web=1&e=h6mBdS, Others- https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Leave%20Policy.pdf?csf=1&web=1&e=hres42",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EZg_FFmCnPdHhAKGUJHR1goBesQgE1-1biuchTx0bVps2w?e=TlYUHv",
                 "tag": "Leave policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Tech%20-%20Probation%20Policy.pdf?csf=1&web=1&e=lGQOHg",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EYWZDRBdlKpLtZUOcFhZP28BqbdauU7cQmYlShDnmU5cOA?e=042DZo",
                 "tag": "Probation policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Travel%20Policy.pdf?csf=1&web=1&e=ia4gK9",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EUhpOqfZy2tJgz2yahSHUgABOHXhOT-_xhzypM9n7I3vxw?e=hVMbGG",
                 "tag": "Travel policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Additional%20Billing%20Hours%20Policy%20-%20UK%202.0.pdf?csf=1&web=1&e=i373nJ",
+                "link": "httpshttps://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EYgbC92aDftBpQuSK5y-yXMBBXvboXfZYciY7aWbIcS1yg?e=Fy7OKD",
                 "tag": "Additional billing hours policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Expenses%20Management%20System%20Policy.pdf?csf=1&web=1&e=Hwue5A",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EUSF6ead6W9Pp5OeW7rrNaYB1oj9HBbsh6-W0_Im2RLssw?e=Q5ovc8",
                 "tag": "Expense management system policy",
             },
             {
@@ -112,67 +112,67 @@ class ActionCompanyPolicy(Action):
                 "tag": "Kaar FTF Bucket policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Internal%20Complaints%20Committee%20Policy.pdf?csf=1&web=1&e=mGiNwo",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EVtNosoO381Bu5t4A5BsT8sBrog2CRJFJ44lOidcb7-c5g?e=Ti2zHk",
                 "tag": "KICC policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Reimbursement%20Policy%20.pdf?csf=1&web=1&e=5N5YJu",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EQCFToagM5lFmddEuUC-U14BrdJUICBfWFwwHnEx6Lih-Q?e=yupAcJ",
                 "tag": "Reimbursement policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Virtual%20Interview%20Panel%20Policy.pdf?csf=1&web=1&e=ecDx6s",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EXI8zU3Kj2pOjYrEH44qPqkBiy-GFNxEcZuJ87tYMEBXEg?e=T7l4zp",
                 "tag": "Interview panel policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20%20-%20WFH%20Policy.pdf?csf=1&web=1&e=s9jfRN",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EaB7MyQOKwlLhrJH7fJhrPQBwD_74V4wnC7IGXtjETThDQ?e=vip6P9",
                 "tag": "WFH policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Appraisal%20Policy.pdf?csf=1&web=1&e=qzEmnc",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/ER40ujNgMQpBlLIqY6AviiQBITsG_LdmHawXyDoZlPku7Q?e=KFolru",
                 "tag": "Appraisal policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Certification%20Policy.pdf?csf=1&web=1&e=nqvkXE",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/Eac-zip92x5Lq1TVkL2-ZlkB0xyna0mZVzRG0iChVTUO7A?e=QnV6Ae",
                 "tag": "Certification policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Deputation%20Policy.pdf?csf=1&web=1&e=jleXgV",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EdlLrrAywrNArTomqtnoymkBv-OPnqHruO2zXDCuZNvpTg?e=FecsJF",
                 "tag": "Deputation policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Training%20Policy.pdf?csf=1&web=1&e=BwcyK9",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EfYFr4748h5IpwUHl2qcjNABb4P8sqc0HUfG2_qaaIHVfw?e=b3Bfh0",
                 "tag": "Training policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Working%20Hours%20Policy.pdf?csf=1&web=1&e=U3hSrn",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EZySyUPBZ5tLhhLDQkdmlrYBogz656RfcwU1SbNFXPjByQ?e=fc7bC3",
                 "tag": "Working hours policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20Employee%20Soft%20Loan%20Policy.pdf?csf=1&web=1&e=3OpGGF",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EUbZHQJAFhxGvU3clYsRSrwBLmKrqfGTLwRn-cPuqUoX-A?e=FjeReg",
                 "tag": "Employee soft loan policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20Laptop%20Damage%20Policy.pdf?csf=1&web=1&e=uujQca",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EeSvQDCEKCRGpPro9DRcwT8BS95YaCBjQY66mrWJq29ApQ?e=mecyro",
                 "tag": "Laptop damage policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Odd%20Hour%20Commute%20Policy.pdf?csf=1&web=1&e=dyTnnA",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EQOzE6LeEdRMrWMV6iumfj0BfBXXLGApSp6Nm7xhHIOaaA?e=4X1Jy3",
                 "tag": "Odd hour commute policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Performance%20Appraisal%20Policy%202.0.pdf?csf=1&web=1&e=26GAVq",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/ETNzjOR1pYpIkTDb_oTrQUMBIlev7ka8FXnUdjh-CFDI0A?e=1QbpRK",
                 "tag": "Performance appraisal policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/R%20%26%20R%20Policy.pdf?csf=1&web=1&e=vZbdDu",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EUe8vFJY4DZCtJgkLLWbNU0Boj6jJ5xL7_2WeRQjcy2M_Q?e=LwdOrq",
                 "tag": "R and R policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Timesheet%202.0%20Policy.pdf?csf=1&web=1&e=sGAPY3",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EYklvdFgu9RIn559g0hOOjsBEpFG5udHA6V97cPojtPWKA?e=7h7Al9",
                 "tag": "Timesheet policy",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Remote%20WorX%20Policy.pdf?csf=1&web=1&e=aemqla",
+                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/Ef3_SJq93ClNoroJINdmpKIB-5Kjz28Q_NKtjTWgdP_iCQ?e=rbdKgt",
                 "tag": "Remote working policy",
             },
         ]
