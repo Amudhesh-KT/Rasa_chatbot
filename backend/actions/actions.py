@@ -33,25 +33,62 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
+
+
+from rasa_sdk import Tracker, FormValidationAction, Action
+from rasa_sdk.events import EventType
+from rasa_sdk.types import DomainDict
+
 from actions.api import prlist, pritems, pritemdetails, polist, poitems, poitemdetails
+
+ALLOWED_TICKET_TYPES = ["software","hardware"]
+ALLOWED_HARDWARE_TYPES = ["monitor", "keyboard", "mouse", "printer", "scanner"]
 
 prno = ""
 pritemno = ""
 pono = ""
 poitemno = ""
 
-# def clear_global_variable_pr():
-#     global prno
-#     prno = None
-#     global pritemno
-#     pritemno = None
+# ************************************ ticket raising form action ***********************************************
 
-# def clear_global_variable_po():
-#     global pono
-#     pono = None
-#     global poitemno
-#     poitemno = None
+class ValidateSimpleTicketForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_simple_ticket_form"
 
+    def validate_ticket_type(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        
+        # print("iniside form ticket type validation")
+        # a = slot_value.lower()
+        # print(a)
+
+        if slot_value.lower() not in ALLOWED_TICKET_TYPES:
+            dispatcher.utter_message(text=f"There are only software/hardware types")
+            return {"ticket_type": None}
+        dispatcher.utter_message(text=f"OK! You want to raise a {slot_value} ticket.")
+        return {"ticket_type": slot_value}
+
+    def validate_hardware_type(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        
+
+        if slot_value.lower() not in ALLOWED_HARDWARE_TYPES:
+            dispatcher.utter_message(text=f"Allowed hardware types are {'/'.join(ALLOWED_HARDWARE_TYPES)}.")
+            return {"hardware_type": None}
+        dispatcher.utter_message(text=f"{slot_value} issue is recognized.")
+        return {"hardware_type": slot_value}
+
+# ************************************ ticket raising form action ***********************************************
 
 class ActionHelloWorld(Action):
     def name(self) -> Text:
