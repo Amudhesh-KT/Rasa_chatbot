@@ -144,7 +144,7 @@ class ActionPRList(Action):
         prlists = prlists[:50]
         # dispatcher.utter_template("utter_givepr",tracker,temp=prlists)
         # message = f"The list of PR's are: {prlists}. Choose a PR Number to display its items"
-        send = {"pr":prlists,"msg":"The PR lists are given below. Choose Any one to see PR Items"}
+        send = {"requests":prlists,"msg":"The PR lists are given below. Choose Any one to see PR Items"}
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
         # dispatcher.utter_message(text=prlists)
@@ -164,7 +164,7 @@ class ActionPOList(Action):
         polists = polists[450:500]
         # dispatcher.utter_template("utter_givepr",tracker,temp=prlists)
         # message = f"The list of PR's are: {prlists}. Choose a PR Number to display its items"
-        send = {"po":polists,"msg":"The PO lists are given below. Choose Any one to see PO Items"}
+        send = {"requests":polists,"msg":"The PO lists are given below. Choose Any one to see PO Items"}
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
         # dispatcher.utter_message(text=prlists)
@@ -209,7 +209,7 @@ class ActionPRitems(Action):
         # message = f"The list of PR's items are: {pritemslist}. Choose Any one to see the description.."
         # dispatcher.utter_message(text=message)
 
-        send = {"pr":pritemslist,"msg":"The PR items lists are given below. Choose Any one to see the Item description"}
+        send = {"requests":pritemslist,"msg":"The PR items lists are given below. Choose Any one to see the Item description"}
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
     
@@ -233,7 +233,7 @@ class ActionPOitems(Action):
         # message = f"The list of PR's items are: {pritemslist}. Choose Any one to see the description.."
         # dispatcher.utter_message(text=message)
 
-        send = {"po":poitemslist,"msg":"The PO items lists are given below. Choose Any one to see the Item description"}
+        send = {"requests":poitemslist,"msg":"The PO items lists are given below. Choose Any one to see the Item description"}
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
 

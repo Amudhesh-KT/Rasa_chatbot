@@ -95,7 +95,7 @@ const Home = () => {
               sender: "bot",
               recipient_id: recipient_id,
               msg: recipient_msg["msg"],
-              actions: recipient_msg["pr"] ? recipient_msg["pr"] : [],
+              actions: recipient_msg["requests"] ? recipient_msg["requests"] : [],
               links: recipient_msg["links"] ? recipient_msg["links"] : [],
               details: recipient_msg["details"] ? recipient_msg["details"] : {},
             };
