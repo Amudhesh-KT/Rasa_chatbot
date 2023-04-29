@@ -6,8 +6,10 @@ import DigiverzMenu from "./chatBotGif.gif";
 import darkModeIcon from "./dark-mode.png";
 import lightModeIcon from "./light-mode.png";
 import darkMode from "./dark-mode.png";
-import ExternalLink from "./external-link.svg";
-import ExternalLinkDark from "./external-link-dark.svg";
+// import ExternalLink from "./external-link.svg";
+// import ExternalLinkDark from "./external-link-dark.svg";
+import ExternalLink from "./link-light.svg";
+import ExternalLinkDark from "./link-dark.svg";
 import send from "./send.png";
 import sendDark from "./send-dark.png";
 import UserIcon from "./user.png";
@@ -38,6 +40,102 @@ const Home = () => {
           link: "https://chat.openai.com/",
           tag: "ChatGPT",
         },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Corporate%20Attire%20Policy.pdf?csf=1&web=1&e=nhNR98",
+          tag: "Corporate attire",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
+          tag: "Over-time",
+        },
+        {
+          link: "India- https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Leave%20Policy%20-%20India.pdf?csf=1&web=1&e=h6mBdS, Others- https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Leave%20Policy.pdf?csf=1&web=1&e=hres42",
+          tag: "Leave",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Tech%20-%20Probation%20Policy.pdf?csf=1&web=1&e=lGQOHg",
+          tag: "Probation",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Travel%20Policy.pdf?csf=1&web=1&e=ia4gK9",
+          tag: "Travel",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Additional%20Billing%20Hours%20Policy%20-%20UK%202.0.pdf?csf=1&web=1&e=i373nJ",
+          tag: "Additional billing hours",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Expenses%20Management%20System%20Policy.pdf?csf=1&web=1&e=Hwue5A",
+          tag: "Expense management system",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20FTF%20Buckets%20Policy.pdf?csf=1&web=1&e=BYTeTJ",
+          tag: "Kaar FTF Bucket",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Internal%20Complaints%20Committee%20Policy.pdf?csf=1&web=1&e=mGiNwo",
+          tag: "KICC",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Reimbursement%20Policy%20.pdf?csf=1&web=1&e=5N5YJu",
+          tag: "Reimbursement",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Virtual%20Interview%20Panel%20Policy.pdf?csf=1&web=1&e=ecDx6s",
+          tag: "Interview panel",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20%20-%20WFH%20Policy.pdf?csf=1&web=1&e=s9jfRN",
+          tag: "WFH",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Appraisal%20Policy.pdf?csf=1&web=1&e=qzEmnc",
+          tag: "Appraisal",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Certification%20Policy.pdf?csf=1&web=1&e=nqvkXE",
+          tag: "Certification",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Deputation%20Policy.pdf?csf=1&web=1&e=jleXgV",
+          tag: "Deputation",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Training%20Policy.pdf?csf=1&web=1&e=BwcyK9",
+          tag: "Training",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Working%20Hours%20Policy.pdf?csf=1&web=1&e=U3hSrn",
+          tag: "Working hours",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20Employee%20Soft%20Loan%20Policy.pdf?csf=1&web=1&e=3OpGGF",
+          tag: "Employee soft loan",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20Laptop%20Damage%20Policy.pdf?csf=1&web=1&e=uujQca",
+          tag: "Laptop damage",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Odd%20Hour%20Commute%20Policy.pdf?csf=1&web=1&e=dyTnnA",
+          tag: "Odd hour commute",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Performance%20Appraisal%20Policy%202.0.pdf?csf=1&web=1&e=26GAVq",
+          tag: "Performance appraisal",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/R%20%26%20R%20Policy.pdf?csf=1&web=1&e=vZbdDu",
+          tag: "R and R",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Timesheet%202.0%20Policy.pdf?csf=1&web=1&e=sGAPY3",
+          tag: "Timesheet",
+        },
+        {
+          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Remote%20WorX%20Policy.pdf?csf=1&web=1&e=aemqla",
+          tag: "Remote working",
+        },
       ],
       details: { "Pending Request Number": "DFUIVFIEVWIF" },
     },
@@ -51,7 +149,7 @@ const Home = () => {
     id: 0,
     count: 10,
   });
-  const chatScreenContent = useRef(); 
+  const chatScreenContent = useRef();
   useEffect(() => {
     chatScreenContent.current.scrollTop =
       chatScreenContent.current.scrollHeight;
@@ -128,7 +226,9 @@ const Home = () => {
               sender: "bot",
               recipient_id: recipient_id,
               msg: recipient_msg["msg"],
-              actions: recipient_msg["requests"] ? recipient_msg["requests"] : [],
+              actions: recipient_msg["requests"]
+                ? recipient_msg["requests"]
+                : [],
               links: recipient_msg["links"] ? recipient_msg["links"] : [],
               details: recipient_msg["details"] ? recipient_msg["details"] : {},
             };
@@ -242,6 +342,8 @@ const Home = () => {
                           target="_blank"
                           style={{
                             color: darkMode ? "white" : "",
+                            gridColumn:
+                              chatContent.links.length < 6 ? "span 2" : "",
                           }}
                         >
                           {link.tag}
