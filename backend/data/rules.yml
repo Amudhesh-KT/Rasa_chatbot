@@ -194,7 +194,7 @@ rules:
 
 - rule: Activate ticket Form
   steps:
-  - intent: raise_ticket
+  - intent: inform
   - action: simple_ticket_form
   - active_loop: simple_ticket_form
 

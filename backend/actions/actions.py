@@ -41,7 +41,7 @@ from rasa_sdk.types import DomainDict
 
 from actions.api import prlist, pritems, pritemdetails, polist, poitems, poitemdetails
 
-ALLOWED_TICKET_TYPES = ["software","hardware"]
+ALLOWED_TICKET_TYPES = ["software", "hardware"]
 ALLOWED_HARDWARE_TYPES = ["monitor", "keyboard", "mouse", "printer", "scanner"]
 
 prno = ""
@@ -50,6 +50,7 @@ pono = ""
 poitemno = ""
 
 # ************************************ ticket raising form action ***********************************************
+
 
 class ValidateSimpleTicketForm(FormValidationAction):
     def name(self) -> Text:
@@ -62,7 +63,6 @@ class ValidateSimpleTicketForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        
         # print("iniside form ticket type validation")
         # a = slot_value.lower()
         # print(a)
@@ -80,15 +80,17 @@ class ValidateSimpleTicketForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        
-
         if slot_value.lower() not in ALLOWED_HARDWARE_TYPES:
-            dispatcher.utter_message(text=f"Allowed hardware types are {'/'.join(ALLOWED_HARDWARE_TYPES)}.")
+            dispatcher.utter_message(
+                text=f"Allowed hardware types are {'/'.join(ALLOWED_HARDWARE_TYPES)}."
+            )
             return {"hardware_type": None}
         dispatcher.utter_message(text=f"{slot_value} issue is recognized.")
         return {"hardware_type": slot_value}
 
+
 # ************************************ ticket raising form action ***********************************************
+
 
 class ActionHelloWorld(Action):
     def name(self) -> Text:
@@ -118,99 +120,99 @@ class ActionCompanyPolicy(Action):
         policies = [
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/ESi_WHpAvMxGjlr_bh1f8Q0B3sA-bvcA2MOVpvrlOn2Pww?e=Wxln2N",
-                "tag": "Corporate attire policy",
+                "tag": "Corporate attire",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EYx8kvvCRpRAkurURg-yj2kB5xQSSg4a80GBF17us8-LZg?e=aTc8f0",
-                "tag": "Over-time policy",
+                "tag": "Over-time",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EZg_FFmCnPdHhAKGUJHR1goBesQgE1-1biuchTx0bVps2w?e=TlYUHv",
-                "tag": "Leave policy",
+                "tag": "Leave",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EYWZDRBdlKpLtZUOcFhZP28BqbdauU7cQmYlShDnmU5cOA?e=042DZo",
-                "tag": "Probation policy",
+                "tag": "Probation",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EUhpOqfZy2tJgz2yahSHUgABOHXhOT-_xhzypM9n7I3vxw?e=hVMbGG",
-                "tag": "Travel policy",
+                "tag": "Travel",
             },
             {
                 "link": "httpshttps://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EYgbC92aDftBpQuSK5y-yXMBBXvboXfZYciY7aWbIcS1yg?e=Fy7OKD",
-                "tag": "Additional billing hours policy",
+                "tag": "Additional billing hours",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EUSF6ead6W9Pp5OeW7rrNaYB1oj9HBbsh6-W0_Im2RLssw?e=Q5ovc8",
-                "tag": "Expense management system policy",
+                "tag": "Expense management system",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20FTF%20Buckets%20Policy.pdf?csf=1&web=1&e=BYTeTJ",
-                "tag": "Kaar FTF Bucket policy",
+                "tag": "Kaar FTF Bucket",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EVtNosoO381Bu5t4A5BsT8sBrog2CRJFJ44lOidcb7-c5g?e=Ti2zHk",
-                "tag": "KICC policy",
+                "tag": "KICC",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EQCFToagM5lFmddEuUC-U14BrdJUICBfWFwwHnEx6Lih-Q?e=yupAcJ",
-                "tag": "Reimbursement policy",
+                "tag": "Reimbursement",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EXI8zU3Kj2pOjYrEH44qPqkBiy-GFNxEcZuJ87tYMEBXEg?e=T7l4zp",
-                "tag": "Interview panel policy",
+                "tag": "Interview panel",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EaB7MyQOKwlLhrJH7fJhrPQBwD_74V4wnC7IGXtjETThDQ?e=vip6P9",
-                "tag": "WFH policy",
+                "tag": "WFH",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/ER40ujNgMQpBlLIqY6AviiQBITsG_LdmHawXyDoZlPku7Q?e=KFolru",
-                "tag": "Appraisal policy",
+                "tag": "Appraisal",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/Eac-zip92x5Lq1TVkL2-ZlkB0xyna0mZVzRG0iChVTUO7A?e=QnV6Ae",
-                "tag": "Certification policy",
+                "tag": "Certification",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EdlLrrAywrNArTomqtnoymkBv-OPnqHruO2zXDCuZNvpTg?e=FecsJF",
-                "tag": "Deputation policy",
+                "tag": "Deputation",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EfYFr4748h5IpwUHl2qcjNABb4P8sqc0HUfG2_qaaIHVfw?e=b3Bfh0",
-                "tag": "Training policy",
+                "tag": "Training",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EZySyUPBZ5tLhhLDQkdmlrYBogz656RfcwU1SbNFXPjByQ?e=fc7bC3",
-                "tag": "Working hours policy",
+                "tag": "Working hours",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EUbZHQJAFhxGvU3clYsRSrwBLmKrqfGTLwRn-cPuqUoX-A?e=FjeReg",
-                "tag": "Employee soft loan policy",
+                "tag": "Employee soft loan",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EeSvQDCEKCRGpPro9DRcwT8BS95YaCBjQY66mrWJq29ApQ?e=mecyro",
-                "tag": "Laptop damage policy",
+                "tag": "Laptop damage",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EQOzE6LeEdRMrWMV6iumfj0BfBXXLGApSp6Nm7xhHIOaaA?e=4X1Jy3",
-                "tag": "Odd hour commute policy",
+                "tag": "Odd hour commute",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/ETNzjOR1pYpIkTDb_oTrQUMBIlev7ka8FXnUdjh-CFDI0A?e=1QbpRK",
-                "tag": "Performance appraisal policy",
+                "tag": "Performance appraisal",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EUe8vFJY4DZCtJgkLLWbNU0Boj6jJ5xL7_2WeRQjcy2M_Q?e=LwdOrq",
-                "tag": "R and R policy",
+                "tag": "R and R",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EYklvdFgu9RIn559g0hOOjsBEpFG5udHA6V97cPojtPWKA?e=7h7Al9",
-                "tag": "Timesheet policy",
+                "tag": "Timesheet",
             },
             {
                 "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/Ef3_SJq93ClNoroJINdmpKIB-5Kjz28Q_NKtjTWgdP_iCQ?e=rbdKgt",
-                "tag": "Remote working policy",
+                "tag": "Remote working",
             },
         ]
 

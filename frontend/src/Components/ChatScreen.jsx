@@ -6,8 +6,10 @@ import DigiverzMenu from "./chatBotGif.gif";
 import darkModeIcon from "./dark-mode.png";
 import lightModeIcon from "./light-mode.png";
 import darkMode from "./dark-mode.png";
-import ExternalLink from "./external-link.svg";
-import ExternalLinkDark from "./external-link-dark.svg";
+// import ExternalLink from "./external-link.svg";
+// import ExternalLinkDark from "./external-link-dark.svg";
+import ExternalLink from "./link-light.svg";
+import ExternalLinkDark from "./link-dark.svg";
 import send from "./send.png";
 import sendDark from "./send-dark.png";
 import UserIcon from "./user.png";
@@ -17,31 +19,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 const Home = () => {
-  const [chat, setChat] = useState([
-    {
-      sender: "user",
-      sender_id: "Name",
-      msg: "Hi how are you Buddy?",
-      chat_id: 1,
-      actions: [],
-      links: [],
-      details: {},
-    },
-    {
-      sender: "bot",
-      sender_id: "Name",
-      msg: "Hi i am a ChatBot. What would you like me to do? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-      chat_id: 2,
-      actions: ["PR 100001232", "Item No 260"],
-      links: [
-        {
-          link: "https://chat.openai.com/",
-          tag: "ChatGPT",
-        },
-      ],
-      details: { "Pending Request Number": "DFUIVFIEVWIF" },
-    },
-  ]);
+  const [chat, setChat] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [botTyping, setBotTyping] = useState(false);
   const [userTyping, setUserTyping] = useState(false);
@@ -51,7 +29,7 @@ const Home = () => {
     id: 0,
     count: 10,
   });
-  const chatScreenContent = useRef(); 
+  const chatScreenContent = useRef();
   useEffect(() => {
     chatScreenContent.current.scrollTop =
       chatScreenContent.current.scrollHeight;
@@ -128,7 +106,9 @@ const Home = () => {
               sender: "bot",
               recipient_id: recipient_id,
               msg: recipient_msg["msg"],
-              actions: recipient_msg["requests"] ? recipient_msg["requests"] : [],
+              actions: recipient_msg["requests"]
+                ? recipient_msg["requests"]
+                : [],
               links: recipient_msg["links"] ? recipient_msg["links"] : [],
               details: recipient_msg["details"] ? recipient_msg["details"] : {},
             };
@@ -242,6 +222,8 @@ const Home = () => {
                           target="_blank"
                           style={{
                             color: darkMode ? "white" : "",
+                            gridColumn:
+                              chatContent.links.length < 6 ? "span 2" : "",
                           }}
                         >
                           {link.tag}
