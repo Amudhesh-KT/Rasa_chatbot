@@ -64,7 +64,7 @@ const Home = () => {
   const handleButtonRequest = (actionValue) => {
     setUserTyping(false);
 
-    const name = "shreyas";
+    const name = "diwa";
     const request_temp = {
       sender: "user",
       sender_id: name,

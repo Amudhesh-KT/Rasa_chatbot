@@ -34,10 +34,17 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 
+from pymongo import MongoClient
+import urllib
+
 
 from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.events import EventType
 from rasa_sdk.types import DomainDict
+
+mongodb_uri = 'mongodb+srv://Bharathkumarkaar:1874924vbk@rasachatbot.ibvkwut.mongodb.net/test'
+client = MongoClient(mongodb_uri)
+db = client["FinancialDetails"]
 
 from actions.api import prlist, pritems, pritemdetails, polist, poitems, poitemdetails
 
@@ -1108,3 +1115,596 @@ class ActionRemoteworkingPolicy(Action):
 
 
 # POLICIES#
+
+
+#SENTENCE INPUT WITH 2 SLOTS FOR NUMBER AND ITEM#
+
+
+class ActionPrNumberwithItem(Action):
+
+    def name(self) -> Text:
+        return "Pr_with_item_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        pr_itemnumber = tracker.get_slot("pritemnumber")
+        pr_number = tracker.get_slot("prnumber")
+
+        print(f"{pr_number}, {pr_itemnumber}")
+
+        pritemdesc = pritemdetails(pr_number, pr_itemnumber)
+        print(pritemdesc)
+
+        dispatcher.utter_message(text=f"pr number with item is working {pr_number}, {pr_itemnumber} \n {pritemdesc} ")
+
+        return []
+
+class ActionPoNumberwithItem(Action):
+
+    def name(self) -> Text:
+        return "Po_with_item_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        po_itemnumber = tracker.get_slot("poitemnumber")
+        po_number = tracker.get_slot("ponumber")
+
+        poitemdesc = poitemdetails(po_number, po_itemnumber)
+        print(poitemdesc)
+
+
+
+        dispatcher.utter_message(text=f"po number with item is working {po_number}, {po_itemnumber} \n {poitemdesc}")
+
+        return []
+
+#SENTENCE INPUT WITH 2 SLOTS FOR NUMBER AND ITEM#
+
+# *************************************** revenue and expense by the year ************************************
+
+class RevenueByYear(Action):
+
+    def name(self) -> Text:
+        return "revenue_by_year_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        revenue_year = tracker.get_slot("revenue_year")
+
+        print(f"{revenue_year}")
+
+        collection = db["Revenue"]
+        
+        a = collection.find()
+        revlist=[]
+
+        for i in a:
+            revlist.append(i[f'{revenue_year}'])
+        total_revenue=sum(revlist)
+
+        print(f"{total_revenue}")
+
+        dispatcher.utter_message(text=f"Revenue for the year {revenue_year} is {total_revenue}")
+
+        return []
+
+class ExpenseByYear(Action):
+
+    def name(self) -> Text:
+        return "expense_by_year_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        expense_year = tracker.get_slot("expense_year")
+
+        print(f"{expense_year}")
+
+        collection = db["Expenses"]
+
+        a = collection.find()
+        explist=[]
+        for i in a:
+            explist.append(i[f'{expense_year}'])
+        total_expense = sum(explist)
+
+        print(total_expense)
+
+        dispatcher.utter_message(text=f"expense for the year {expense_year} is {total_expense}")
+
+        return []
+
+
+
+# **************************************** revenue and expense by the year **********************************
+# ****************************************** revenue and expense for the year and revenue category************
+
+class RevenueByYear(Action):
+
+    def name(self) -> Text:
+        return "revenue_by_year_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        revenue_year = tracker.get_slot("revenue_year")
+
+        print(f"{revenue_year}")
+
+        collection = db["Revenue"]
+        
+        a = collection.find()
+        revlist=[]
+
+        for i in a:
+            revlist.append(i[f'{revenue_year}'])
+        total_revenue=sum(revlist)
+
+        print(f"{total_revenue}")
+
+        dispatcher.utter_message(text=f"Revenue for the year {revenue_year} is {total_revenue}")
+
+        return []
+
+class ExpenseByYear(Action):
+
+    def name(self) -> Text:
+        return "expense_by_year_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        expense_year = tracker.get_slot("expense_year")
+
+        print(f"{expense_year}")
+
+        collection = db["Expenses"]
+
+        a = collection.find()
+        explist=[]
+        for i in a:
+            explist.append(i[f'{expense_year}'])
+        total_expense = sum(explist)
+
+        print(total_expense)
+
+        dispatcher.utter_message(text=f"expense for the year {expense_year} is {total_expense}")
+
+        return []
+
+
+
+class MarketingExpenseByYear(Action):
+
+    def name(self) -> Text:
+        return "Marketing_expense_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        expense_year = tracker.get_slot("expense_year")
+        marketing_expense = tracker.get_slot("marketing_expense")
+
+        # print("im inside marketing expense")
+
+        # print(f"{expense_year}")
+        # print(f"{marketing_expense}")
+
+        collection = db["Expenses"]
+        key = "Marketing Expense"
+        a = collection.find()
+        w=''
+        for i in a:
+            if i['Categories']==key:
+                w=i
+                break
+        expense =w[f'{expense_year}']
+        print(expense)
+
+        dispatcher.utter_message(text=f"{key} for the year ({expense_year}) is {expense}")
+        
+        # dispatcher.utter_message(text=f"marketing expense is working slot values {expense_year} {marketing_expense}")
+
+        return []
+    
+class OperaionalExpenseByYear(Action):
+
+    def name(self) -> Text:
+        return "Operational_expense_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        expense_year = tracker.get_slot("expense_year")
+        operation_expense = tracker.get_slot("operation_expense")
+
+        print("im inside operation expense")
+
+        print(f"{expense_year}")
+        print(f"{operation_expense}")
+
+        collection = db["Expenses"]
+        key = "Operational Expense"
+        a = collection.find()
+        w=''
+        for i in a:
+            if i['Categories']==key:
+                w=i
+                break
+        expense =w[f'{expense_year}']
+        print(expense)
+
+        dispatcher.utter_message(text=f"{key} for the year ({expense_year}) is {expense}")
+        
+        # dispatcher.utter_message(text=f"operation expense is working slot values {expense_year} {operation_expense}")
+
+        return []
+    
+
+class ResearchExpenseByYear(Action):
+
+    def name(self) -> Text:
+        return "Research_expense_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        expense_year = tracker.get_slot("expense_year")
+        research_expense = tracker.get_slot("research_expense")
+
+        print("im inside research expense")
+
+        print(f"{expense_year}")
+        print(f"{research_expense}")
+
+        collection = db["Expenses"]
+        key = "Research Expense"
+        a = collection.find()
+        w=''
+        for i in a:
+            if i['Categories']==key:
+                w=i
+                break
+        expense =w[f'{expense_year}']
+        print(expense)
+
+        dispatcher.utter_message(text=f"{key} for the year ({expense_year}) is {expense}")
+        
+        # dispatcher.utter_message(text=f"operation expense is working slot values {expense_year} {operation_expense}")
+
+        return []
+    
+class CapitalExpenseByYear(Action):
+
+    def name(self) -> Text:
+        return "Capital_expense_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        expense_year = tracker.get_slot("expense_year")
+        capital_expense = tracker.get_slot("capital_expense")
+
+        print("im inside capital expense")
+
+        print(f"{expense_year}")
+        print(f"{capital_expense}")
+
+        collection = db["Expenses"]
+        key = "Capital Expense"
+        a = collection.find()
+        w=''
+        for i in a:
+            if i['Categories']==key:
+                w=i
+                break
+        expense =w[f'{expense_year}']
+        print(expense)
+
+        dispatcher.utter_message(text=f"{key} for the year ({expense_year}) is {expense}")
+        
+        # dispatcher.utter_message(text=f"operation expense is working slot values {expense_year} {operation_expense}")
+
+        return []
+    
+class TaxExpenseByYear(Action):
+
+    def name(self) -> Text:
+        return "Taxes_expense_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        expense_year = tracker.get_slot("expense_year")
+        tax_expense = tracker.get_slot("tax_expense")
+
+        print("im inside capital expense")
+
+        print(f"{expense_year}")
+        print(f"{tax_expense}")
+
+        collection = db["Expenses"]
+        key = "Taxes"
+        a = collection.find()
+        w=''
+        for i in a:
+            if i['Categories']==key:
+                w=i
+                break
+        expense =w[f'{expense_year}']
+        print(expense)
+
+        dispatcher.utter_message(text=f"{key} for the year ({expense_year}) is {expense}")
+        
+        # dispatcher.utter_message(text=f"operation expense is working slot values {expense_year} {operation_expense}")
+
+        return []
+
+
+
+# ****************************************** revenue and expense for the year and revenue category************
+
+
+# ************************************** revenue and expense split and leaves ********************************
+class ContractsRevenueByYear(Action):
+
+    def name(self) -> Text:
+        return "Contracts_revenue_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        revenue_year = tracker.get_slot("revenue_year")
+        contracts_revenue = tracker.get_slot("contracts_revenue")
+
+        print("im inside contracts revenue")
+
+        print(f"{revenue_year}")
+        print(f"{contracts_revenue}")
+
+        collection = db["Revenue"]
+        key = "Contracts"
+        a = collection.find()
+        w=''
+        for i in a:
+            if i['Categories']==key:
+                w=i
+                break
+        rev =w[f'{revenue_year}']
+        print(rev)
+
+        dispatcher.utter_message(text=f"{key} revenue for the year ({revenue_year}) is {rev}")
+        
+        # dispatcher.utter_message(text=f"contracts revenue is working slot values {revenue_year} {contracts_revenue}")
+
+        return []
+    
+
+class SubscriptionRevenueByYear(Action):
+
+    def name(self) -> Text:
+        return "Subscriptions_revenue_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        revenue_year = tracker.get_slot("revenue_year")
+        subscription_revenue = tracker.get_slot("subscription_revenue")
+
+        print("im inside subscr revenue")
+
+        print(f"{revenue_year}")
+        print(f"{subscription_revenue}")
+
+        collection = db["Revenue"]
+        key = "Subscriptions"
+        a = collection.find()
+        w=''
+        for i in a:
+            if i['Categories']==key:
+                w=i
+                break
+        rev =w[f'{revenue_year}']
+        print(rev)
+
+        dispatcher.utter_message(text=f"{key} revenue for the year ({revenue_year}) is {rev}")
+        
+        # dispatcher.utter_message(text=f"contracts revenue is working slot values {revenue_year} {contracts_revenue}")
+
+        return []
+    
+
+class CommisionsRevenueByYear(Action):
+
+    def name(self) -> Text:
+        return "Commisions_revenue_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        revenue_year = tracker.get_slot("revenue_year")
+        commision_revenue = tracker.get_slot("commision_revenue")
+
+        print("im inside commision revenue")
+
+        print(f"{revenue_year}")
+        print(f"{commision_revenue}")
+
+        collection = db["Revenue"]
+        key = "Commisions"
+        a = collection.find()
+        w=''
+        for i in a:
+            if i['Categories']==key:
+                w=i
+                break
+        rev =w[f'{revenue_year}']
+        print(rev)
+
+        dispatcher.utter_message(text=f"{key} revenue for the year ({revenue_year}) is {rev}")
+        
+        # dispatcher.utter_message(text=f"contracts revenue is working slot values {revenue_year} {contracts_revenue}")
+
+        return []
+    
+class SalesRevenueByYear(Action):
+
+    def name(self) -> Text:
+        return "Sales_of_Products_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        revenue_year = tracker.get_slot("revenue_year")
+        sales_revenue = tracker.get_slot("sales_revenue")
+
+        print("im inside sales of products revenue")
+
+        print(f"{revenue_year}")
+        print(f"{sales_revenue}")
+
+        collection = db["Revenue"]
+        key = "Sales of Products"
+        a = collection.find()
+        w=''
+        for i in a:
+            if i['Categories']==key:
+                w=i
+                break
+        rev =w[f'{revenue_year}']
+        print(rev)
+
+        dispatcher.utter_message(text=f"{key} revenue for the year ({revenue_year}) is {rev}")
+        
+        # dispatcher.utter_message(text=f"contracts revenue is working slot values {revenue_year} {contracts_revenue}")
+
+        return []
+    
+class ConsultingRevenueByYear(Action):
+
+    def name(self) -> Text:
+        return "Consulting_revenue_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        revenue_year = tracker.get_slot("revenue_year")
+        consulting_revenue = tracker.get_slot("consulting_revenue")
+
+        print("im inside consulting revenue")
+
+        print(f"{revenue_year}")
+        print(f"{consulting_revenue}")
+
+        collection = db["Revenue"]
+        key = "Consulting"
+        a = collection.find()
+        w=''
+        for i in a:
+            if i['Categories']==key:
+                w=i
+                break
+        rev =w[f'{revenue_year}']
+        print(rev)
+
+        dispatcher.utter_message(text=f"{key} revenue for the year ({revenue_year}) is {rev}")
+        
+        # dispatcher.utter_message(text=f"contracts revenue is working slot values {revenue_year} {contracts_revenue}")
+
+        return []
+    
+class RevenueSplitByYear(Action):
+
+    def name(self) -> Text:
+        return "revenuesplit_by_year_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        revenue_year = tracker.get_slot("revenue_year")
+
+        collection = db["Revenue"]
+        # expense_list = collection.find_one({"2018":50000 })
+        # print(expense_list)t
+        a = collection.find()
+        revenue_split={}
+        for i in a:
+            revenue_split[i['Categories']]=i[f'{revenue_year}']
+        print(revenue_split)
+
+
+        dispatcher.utter_message(text=f"Revenue split for the year {revenue_year} is {revenue_split}")
+        
+
+        return []
+    
+
+class ExpenseSplitByYear(Action):
+
+    def name(self) -> Text:
+        return "expensesplit_by_year_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        expense_year = tracker.get_slot("expense_year")
+
+        collection = db["Expenses"]
+        # expense_list = collection.find_one({"2018":50000 })
+        # print(expense_list)t
+        a = collection.find()
+        exp_split={}
+        for i in a:
+            exp_split[i['Categories']]=i[f'{expense_year}']
+        print(exp_split)
+
+
+        dispatcher.utter_message(text=f"Expense split for the year {expense_year} is {exp_split}")
+        
+
+        return []
+    
+class LeaveBalance(Action):
+
+    def name(self) -> Text:
+        return "Leave_balance_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        collection = db["Leave"]
+        a = collection.find()
+        leave_balance={}
+        for i in a:
+            leave_balance[i['Leave Type']]=i['NoofDays']
+        print(leave_balance)
+
+        dispatcher.utter_message(text=f"The available leaves are {leave_balance}")
+        
+
+        return []
+
+
+# ************************************** revenue and expense split and leaves ********************************

@@ -209,3 +209,107 @@ rules:
   - action: utter_ticket_slots
 
 # ************************************* ticket raising rules *********************************************************
+
+# ************************************* number along with item number rules *******************************************
+- rule: pr with item no
+  steps:
+  - intent: Pr_with_item
+  - action: Pr_with_item_action
+
+- rule: po with item no
+  steps:
+  - intent: Po_with_item
+  - action: Po_with_item_action
+
+# ************************************* number along with item number rules *******************************************
+# *********************************************revenue and expense by the year******************************************
+
+- rule: getting the revenue for particular year
+  steps:
+  - intent: revenue_by_year
+  - action: revenue_by_year_action
+
+- rule: getting the expense for particular year
+  steps:
+  - intent: expense_by_year
+  - action: expense_by_year_action
+
+
+# *********************************************revenue and expense by the year******************************************
+
+# *********************************************expense by category******************************************
+- rule: marketing expense by year rule
+  steps:
+  - intent: Marketing_expense_intent
+  - action: Marketing_expense_action
+
+- rule: marketing expense by year rule
+  steps:
+  - intent: Operational_expense_intent
+  - action: Operational_expense_action
+
+- rule: research expense by year rule
+  steps:
+  - intent: Research_expense_intent
+  - action: Research_expense_action
+
+- rule: capital expense by year rule
+  steps:
+  - intent: Capital_expense_intent
+  - action: Capital_expense_action
+
+- rule: Taxe expense by year rule
+  steps:
+  - intent: Taxes_expense_intent
+  - action: Taxes_expense_action
+
+
+# *********************************************expense by category******************************************
+
+
+# ************************************* revenue expnese slit and leave *******************************************
+
+- rule: contracts revenue by year 
+  steps:
+  - intent: Contracts_revenue_intent
+  - action: Contracts_revenue_action
+
+- rule: Subscription revenue by year 
+  steps:
+  - intent: Subscriptions_revenue_intent
+  - action: Subscriptions_revenue_action
+
+- rule: commisions revenue by year 
+  steps:
+  - intent: Commisions_revenue_intent
+  - action: Commisions_revenue_action
+
+- rule: Sales of products revenue by year 
+  steps:
+  - intent: Sales_of_Products_intent
+  - action: Sales_of_Products_action
+
+- rule: Consulting revenue by year 
+  steps:
+  - intent: Consulting_revenue_intent
+  - action: Consulting_revenue_action
+
+- rule: revenue split by year 
+  steps:
+  - intent: revenuesplit_by_year_intent
+  - action: revenuesplit_by_year_action
+
+- rule: expense split by year 
+  steps:
+  - intent: expensesplit_by_year_intent
+  - action: expensesplit_by_year_action
+
+- rule: leave balance
+  steps:
+  - intent: Leave_balance_intent
+  - action: Leave_balance_action
+
+
+
+# ************************************* revenue expnese slit and leave *******************************************
+
