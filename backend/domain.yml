@@ -44,6 +44,28 @@ intents:
   - TimesheetPolicy
   - inform
   - raise_ticket
+  - Pr_with_item
+  - Po_with_item
+
+  
+  - Contracts_revenue_intent
+  - Subscriptions_revenue_intent
+  - Commisions_revenue_intent
+  - Sales_of_Products_intent
+  - Consulting_revenue_intent
+  - revenuesplit_by_year_intent
+  - expensesplit_by_year_intent
+  - Leave_balance_intent
+
+  - revenue_by_year
+  - expense_by_year
+  - Marketing_expense_intent
+  - Operational_expense_intent
+  - Research_expense_intent
+  - Capital_expense_intent
+  - Taxes_expense_intent
+
+
 
 actions:
   - action_show_time
@@ -83,6 +105,26 @@ actions:
   - utter_ticket_slots
   - utter_submit
   - validate_simple_ticket_form
+  - Pr_with_item_action
+  - Po_with_item_action
+
+  - Contracts_revenue_action
+  - Subscriptions_revenue_action
+  - Commisions_revenue_action
+  - Sales_of_Products_action
+  - Consulting_revenue_action
+  - revenuesplit_by_year_action
+  - expensesplit_by_year_action
+  - Leave_balance_action
+
+  - revenue_by_year_action
+  - expense_by_year_action
+  - Marketing_expense_action
+  - Operational_expense_action
+  - Research_expense_action
+  - Capital_expense_action
+  - Taxes_expense_action
+
 
 # ************************************************ Ticket form ***************************************************
 forms:
@@ -113,6 +155,47 @@ entities:
   - po_itemnumber:
       type: regex
       pattern: "^[0-9]{3,6}$"
+
+
+  - revenue_year:
+      type: regex
+      pattern: "[0-9]{8}"
+  - expense_year:
+      type: regex
+      pattern: "[0-9]{8}"
+  - contracts_revenue:
+      type: text
+      regex: '[A-Za-z]+'
+  - subscription_revenue:
+      type: text
+      regex: '[A-Za-z]+'
+  - commision_revenue:
+      type: text
+      regex: '[A-Za-z]+'
+  - sales_revenue:
+      type: text
+      regex: '[A-Za-z]+'
+  - consulting_revenue:
+      type: text
+      regex: '[A-Za-z]+'
+
+
+
+  - marketing_expense:
+      type: text
+      regex: '[A-Za-z]+'
+  - operation_expense:
+      type: text
+      regex: '[A-Za-z]+'
+  - research_expense:
+      type: text
+      regex: '[A-Za-z]+'
+  - capital_expense:
+      type: text
+      regex: '[A-Za-z]+'
+  - tax_expense:
+      type: text
+      regex: '[A-Za-z]+'
 
 
 slots:
@@ -155,6 +238,8 @@ slots:
     mappings:
     - type: from_entity
       entity: po_itemnumber
+
+  
 # ****************************************** Slots for raising ticket form ***************************************
   ticket_type:
     type: text
@@ -170,6 +255,86 @@ slots:
       entity: hardware_type
 
 # ****************************************** Slots for raising ticket form ***************************************
+
+  revenue_year:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: revenue_year
+
+  expense_year:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: expense_year
+
+  contracts_revenue:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: contracts_revenue
+
+  subscription_revenue:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: subscription_revenue
+
+  sales_revenue:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: sales_revenue
+  
+  commision_revenue:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: commision_revenue
+  
+  consulting_revenue:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: consulting_revenue
+
+  marketing_expense:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: marketing_expense
+  operation_expense:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: operation_expense
+  research_expense:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: research_expense
+  capital_expense:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: capital_expense
+  tax_expense:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: tax_expense
 
 responses:
 
