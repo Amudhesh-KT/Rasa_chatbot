@@ -42,7 +42,9 @@ from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.events import EventType
 from rasa_sdk.types import DomainDict
 
-mongodb_uri = 'mongodb+srv://Bharathkumarkaar:1874924vbk@rasachatbot.ibvkwut.mongodb.net/test'
+mongodb_uri = (
+    "mongodb+srv://Bharathkumarkaar:1874924vbk@rasachatbot.ibvkwut.mongodb.net/test"
+)
 client = MongoClient(mongodb_uri)
 db = client["FinancialDetails"]
 
@@ -1117,18 +1119,19 @@ class ActionRemoteworkingPolicy(Action):
 # POLICIES#
 
 
-#SENTENCE INPUT WITH 2 SLOTS FOR NUMBER AND ITEM#
+# SENTENCE INPUT WITH 2 SLOTS FOR NUMBER AND ITEM#
 
 
 class ActionPrNumberwithItem(Action):
-
     def name(self) -> Text:
         return "Pr_with_item_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         pr_itemnumber = tracker.get_slot("pritemnumber")
         pr_number = tracker.get_slot("prnumber")
 
@@ -1150,15 +1153,17 @@ class ActionPrNumberwithItem(Action):
 
         return []
 
-class ActionPoNumberwithItem(Action):
 
+class ActionPoNumberwithItem(Action):
     def name(self) -> Text:
         return "Po_with_item_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         po_itemnumber = tracker.get_slot("poitemnumber")
         po_number = tracker.get_slot("ponumber")
 
@@ -1180,47 +1185,62 @@ class ActionPoNumberwithItem(Action):
 
         return []
 
-#SENTENCE INPUT WITH 2 SLOTS FOR NUMBER AND ITEM#
+
+# SENTENCE INPUT WITH 2 SLOTS FOR NUMBER AND ITEM#
 
 # *************************************** revenue and expense by the year ************************************
 
-class RevenueByYear(Action):
 
+class RevenueByYear(Action):
     def name(self) -> Text:
         return "revenue_by_year_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         revenue_year = tracker.get_slot("revenue_year")
 
         print(f"{revenue_year}")
 
         collection = db["Revenue"]
-        
+
         a = collection.find()
-        revlist=[]
+        revlist = []
 
         for i in a:
-            revlist.append(i[f'{revenue_year}'])
-        total_revenue=sum(revlist)
+            revlist.append(i[f"{revenue_year}"])
+        total_revenue = sum(revlist)
 
         print(f"{total_revenue}")
-
-        dispatcher.utter_message(text=f"Revenue for the year {revenue_year} is {total_revenue}")
+        send = {
+                "cards": [
+                    {
+                        "title": "Total Revenue",
+                        "year": revenue_year,
+                        "value": total_revenue,
+                    }
+                ]
+            }
+        
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)    
 
         return []
 
-class ExpenseByYear(Action):
 
+class ExpenseByYear(Action):
     def name(self) -> Text:
         return "expense_by_year_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         expense_year = tracker.get_slot("expense_year")
 
         print(f"{expense_year}")
@@ -1228,59 +1248,84 @@ class ExpenseByYear(Action):
         collection = db["Expenses"]
 
         a = collection.find()
-        explist=[]
+        explist = []
         for i in a:
-            explist.append(i[f'{expense_year}'])
+            explist.append(i[f"{expense_year}"])
         total_expense = sum(explist)
 
         print(total_expense)
-
-        dispatcher.utter_message(text=f"expense for the year {expense_year} is {total_expense}")
+        send ={
+                "cards": [
+                    {
+                        "title": "Total Expense",
+                        "year": expense_year,
+                        "value": total_expense,
+                    }
+                ]
+            }
+        
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
+        dispatcher.utter_message(
+            text=f"expense for the year {expense_year} is {total_expense}"
+        )
 
         return []
-
 
 
 # **************************************** revenue and expense by the year **********************************
 # ****************************************** revenue and expense for the year and revenue category************
 
-class RevenueByYear(Action):
 
+class RevenueByYear(Action):
     def name(self) -> Text:
         return "revenue_by_year_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         revenue_year = tracker.get_slot("revenue_year")
 
         print(f"{revenue_year}")
 
         collection = db["Revenue"]
-        
+
         a = collection.find()
-        revlist=[]
+        revlist = []
 
         for i in a:
-            revlist.append(i[f'{revenue_year}'])
-        total_revenue=sum(revlist)
+            revlist.append(i[f"{revenue_year}"])
+        total_revenue = sum(revlist)
 
         print(f"{total_revenue}")
-
-        dispatcher.utter_message(text=f"Revenue for the year {revenue_year} is {total_revenue}")
+        send = {
+                "cards": [
+                    {
+                        "title": "Total Revenue",
+                        "year": revenue_year,
+                        "value": total_revenue,
+                    }
+                ]
+            }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
         return []
 
-class ExpenseByYear(Action):
 
+class ExpenseByYear(Action):
     def name(self) -> Text:
         return "expense_by_year_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         expense_year = tracker.get_slot("expense_year")
 
         print(f"{expense_year}")
@@ -1288,28 +1333,37 @@ class ExpenseByYear(Action):
         collection = db["Expenses"]
 
         a = collection.find()
-        explist=[]
+        explist = []
         for i in a:
-            explist.append(i[f'{expense_year}'])
+            explist.append(i[f"{expense_year}"])
         total_expense = sum(explist)
 
         print(total_expense)
-
-        dispatcher.utter_message(text=f"expense for the year {expense_year} is {total_expense}")
+        send = {
+                "cards": [
+                    {
+                        "title": "Total Expense",
+                        "year": expense_year,
+                        "value": total_expense,
+                    }
+                ]
+            }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
         return []
 
 
-
 class MarketingExpenseByYear(Action):
-
     def name(self) -> Text:
         return "Marketing_expense_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         expense_year = tracker.get_slot("expense_year")
         marketing_expense = tracker.get_slot("marketing_expense")
 
@@ -1321,29 +1375,40 @@ class MarketingExpenseByYear(Action):
         collection = db["Expenses"]
         key = "Marketing Expense"
         a = collection.find()
-        w=''
+        w = ""
         for i in a:
-            if i['Categories']==key:
-                w=i
+            if i["Categories"] == key:
+                w = i
                 break
-        expense =w[f'{expense_year}']
+        expense = w[f"{expense_year}"]
         print(expense)
+        send = {
+                "cards": [
+                    {
+                        "title": key,
+                        "year": expense_year,
+                        "value": expense,
+                    }
+                ]
+            }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
-        dispatcher.utter_message(text=f"{key} for the year ({expense_year}) is {expense}")
-        
         # dispatcher.utter_message(text=f"marketing expense is working slot values {expense_year} {marketing_expense}")
 
         return []
-    
-class OperaionalExpenseByYear(Action):
 
+
+class OperaionalExpenseByYear(Action):
     def name(self) -> Text:
         return "Operational_expense_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         expense_year = tracker.get_slot("expense_year")
         operation_expense = tracker.get_slot("operation_expense")
 
@@ -1355,30 +1420,40 @@ class OperaionalExpenseByYear(Action):
         collection = db["Expenses"]
         key = "Operational Expense"
         a = collection.find()
-        w=''
+        w = ""
         for i in a:
-            if i['Categories']==key:
-                w=i
+            if i["Categories"] == key:
+                w = i
                 break
-        expense =w[f'{expense_year}']
+        expense = w[f"{expense_year}"]
         print(expense)
+        send ={
+                "cards": [
+                    {
+                        "title": key,
+                        "year": expense_year,
+                        "value": expense,
+                    }
+                ]
+            }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
-        dispatcher.utter_message(text=f"{key} for the year ({expense_year}) is {expense}")
-        
         # dispatcher.utter_message(text=f"operation expense is working slot values {expense_year} {operation_expense}")
 
         return []
-    
+
 
 class ResearchExpenseByYear(Action):
-
     def name(self) -> Text:
         return "Research_expense_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         expense_year = tracker.get_slot("expense_year")
         research_expense = tracker.get_slot("research_expense")
 
@@ -1390,29 +1465,40 @@ class ResearchExpenseByYear(Action):
         collection = db["Expenses"]
         key = "Research Expense"
         a = collection.find()
-        w=''
+        w = ""
         for i in a:
-            if i['Categories']==key:
-                w=i
+            if i["Categories"] == key:
+                w = i
                 break
-        expense =w[f'{expense_year}']
+        expense = w[f"{expense_year}"]
         print(expense)
+        send = {
+                "cards": [
+                    {
+                        "title": key,
+                        "year": expense_year,
+                        "value": expense,
+                    }
+                ]
+            }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
-        dispatcher.utter_message(text=f"{key} for the year ({expense_year}) is {expense}")
-        
         # dispatcher.utter_message(text=f"operation expense is working slot values {expense_year} {operation_expense}")
 
         return []
-    
-class CapitalExpenseByYear(Action):
 
+
+class CapitalExpenseByYear(Action):
     def name(self) -> Text:
         return "Capital_expense_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         expense_year = tracker.get_slot("expense_year")
         capital_expense = tracker.get_slot("capital_expense")
 
@@ -1424,29 +1510,40 @@ class CapitalExpenseByYear(Action):
         collection = db["Expenses"]
         key = "Capital Expense"
         a = collection.find()
-        w=''
+        w = ""
         for i in a:
-            if i['Categories']==key:
-                w=i
+            if i["Categories"] == key:
+                w = i
                 break
-        expense =w[f'{expense_year}']
+        expense = w[f"{expense_year}"]
         print(expense)
+        send ={
+                "cards": [
+                    {
+                        "title": key,
+                        "year": expense_year,
+                        "value": expense,
+                    }
+                ]
+            }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
-        dispatcher.utter_message(text=f"{key} for the year ({expense_year}) is {expense}")
-        
         # dispatcher.utter_message(text=f"operation expense is working slot values {expense_year} {operation_expense}")
 
         return []
-    
-class TaxExpenseByYear(Action):
 
+
+class TaxExpenseByYear(Action):
     def name(self) -> Text:
         return "Taxes_expense_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         expense_year = tracker.get_slot("expense_year")
         tax_expense = tracker.get_slot("tax_expense")
 
@@ -1458,20 +1555,28 @@ class TaxExpenseByYear(Action):
         collection = db["Expenses"]
         key = "Taxes"
         a = collection.find()
-        w=''
+        w = ""
         for i in a:
-            if i['Categories']==key:
-                w=i
+            if i["Categories"] == key:
+                w = i
                 break
-        expense =w[f'{expense_year}']
+        expense = w[f"{expense_year}"]
         print(expense)
+        send ={
+                "cards": [
+                    {
+                        "title": key,
+                        "year": expense_year,
+                        "value": expense,
+                    }
+                ]
+            }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
-        dispatcher.utter_message(text=f"{key} for the year ({expense_year}) is {expense}")
-        
         # dispatcher.utter_message(text=f"operation expense is working slot values {expense_year} {operation_expense}")
 
         return []
-
 
 
 # ****************************************** revenue and expense for the year and revenue category************
@@ -1479,14 +1584,15 @@ class TaxExpenseByYear(Action):
 
 # ************************************** revenue and expense split and leaves ********************************
 class ContractsRevenueByYear(Action):
-
     def name(self) -> Text:
         return "Contracts_revenue_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         revenue_year = tracker.get_slot("revenue_year")
         contracts_revenue = tracker.get_slot("contracts_revenue")
 
@@ -1498,30 +1604,39 @@ class ContractsRevenueByYear(Action):
         collection = db["Revenue"]
         key = "Contracts"
         a = collection.find()
-        w=''
+        w = ""
         for i in a:
-            if i['Categories']==key:
-                w=i
+            if i["Categories"] == key:
+                w = i
                 break
-        rev =w[f'{revenue_year}']
+        rev = w[f"{revenue_year}"]
         print(rev)
-
-        dispatcher.utter_message(text=f"{key} revenue for the year ({revenue_year}) is {rev}")
-        
+        send ={
+                "cards": [
+                    {
+                        "title": key,
+                        "year": revenue_year,
+                        "value": rev,
+                    }
+                ]
+            }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
         # dispatcher.utter_message(text=f"contracts revenue is working slot values {revenue_year} {contracts_revenue}")
 
         return []
-    
+
 
 class SubscriptionRevenueByYear(Action):
-
     def name(self) -> Text:
         return "Subscriptions_revenue_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         revenue_year = tracker.get_slot("revenue_year")
         subscription_revenue = tracker.get_slot("subscription_revenue")
 
@@ -1533,30 +1648,40 @@ class SubscriptionRevenueByYear(Action):
         collection = db["Revenue"]
         key = "Subscriptions"
         a = collection.find()
-        w=''
+        w = ""
         for i in a:
-            if i['Categories']==key:
-                w=i
+            if i["Categories"] == key:
+                w = i
                 break
-        rev =w[f'{revenue_year}']
+        rev = w[f"{revenue_year}"]
         print(rev)
+        send ={
+                "cards": [
+                    {
+                        "title": key,
+                        "year": revenue_year,
+                        "value": rev,
+                    }
+                ]
+            }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
-        dispatcher.utter_message(text=f"{key} revenue for the year ({revenue_year}) is {rev}")
-        
         # dispatcher.utter_message(text=f"contracts revenue is working slot values {revenue_year} {contracts_revenue}")
 
         return []
-    
+
 
 class CommisionsRevenueByYear(Action):
-
     def name(self) -> Text:
         return "Commisions_revenue_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         revenue_year = tracker.get_slot("revenue_year")
         commision_revenue = tracker.get_slot("commision_revenue")
 
@@ -1568,29 +1693,40 @@ class CommisionsRevenueByYear(Action):
         collection = db["Revenue"]
         key = "Commisions"
         a = collection.find()
-        w=''
+        w = ""
         for i in a:
-            if i['Categories']==key:
-                w=i
+            if i["Categories"] == key:
+                w = i
                 break
-        rev =w[f'{revenue_year}']
+        rev = w[f"{revenue_year}"]
         print(rev)
+        send ={
+                "cards": [
+                    {
+                        "title": key,
+                        "year": revenue_year,
+                        "value": rev,
+                    }
+                ]
+            }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
-        dispatcher.utter_message(text=f"{key} revenue for the year ({revenue_year}) is {rev}")
-        
         # dispatcher.utter_message(text=f"contracts revenue is working slot values {revenue_year} {contracts_revenue}")
 
         return []
-    
-class SalesRevenueByYear(Action):
 
+
+class SalesRevenueByYear(Action):
     def name(self) -> Text:
         return "Sales_of_Products_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         revenue_year = tracker.get_slot("revenue_year")
         sales_revenue = tracker.get_slot("sales_revenue")
 
@@ -1602,29 +1738,40 @@ class SalesRevenueByYear(Action):
         collection = db["Revenue"]
         key = "Sales of Products"
         a = collection.find()
-        w=''
+        w = ""
         for i in a:
-            if i['Categories']==key:
-                w=i
+            if i["Categories"] == key:
+                w = i
                 break
-        rev =w[f'{revenue_year}']
+        rev = w[f"{revenue_year}"]
         print(rev)
+        send ={
+                "cards": [
+                    {
+                        "title": key,
+                        "year": revenue_year,
+                        "value": rev,
+                    }
+                ]
+            }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
-        dispatcher.utter_message(text=f"{key} revenue for the year ({revenue_year}) is {rev}")
-        
         # dispatcher.utter_message(text=f"contracts revenue is working slot values {revenue_year} {contracts_revenue}")
 
         return []
-    
-class ConsultingRevenueByYear(Action):
 
+
+class ConsultingRevenueByYear(Action):
     def name(self) -> Text:
         return "Consulting_revenue_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         revenue_year = tracker.get_slot("revenue_year")
         consulting_revenue = tracker.get_slot("consulting_revenue")
 
@@ -1636,91 +1783,108 @@ class ConsultingRevenueByYear(Action):
         collection = db["Revenue"]
         key = "Consulting"
         a = collection.find()
-        w=''
+        w = ""
         for i in a:
-            if i['Categories']==key:
-                w=i
+            if i["Categories"] == key:
+                w = i
                 break
-        rev =w[f'{revenue_year}']
+        rev = w[f"{revenue_year}"]
         print(rev)
+        send ={
+                "cards": [
+                    {
+                        "title": key,
+                        "year": revenue_year,
+                        "value": rev,
+                    }
+                ]
+            }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
-        dispatcher.utter_message(text=f"{key} revenue for the year ({revenue_year}) is {rev}")
-        
         # dispatcher.utter_message(text=f"contracts revenue is working slot values {revenue_year} {contracts_revenue}")
 
         return []
-    
-class RevenueSplitByYear(Action):
 
+
+class RevenueSplitByYear(Action):
     def name(self) -> Text:
         return "revenuesplit_by_year_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         revenue_year = tracker.get_slot("revenue_year")
 
         collection = db["Revenue"]
         # expense_list = collection.find_one({"2018":50000 })
         # print(expense_list)t
         a = collection.find()
-        revenue_split={}
+        revenue_split = {}
         for i in a:
-            revenue_split[i['Categories']]=i[f'{revenue_year}']
+            revenue_split[i["Categories"]] = i[f"{revenue_year}"]
         print(revenue_split)
 
-
-        dispatcher.utter_message(text=f"Revenue split for the year {revenue_year} is {revenue_split}")
-        
+        send = {
+            "msg": f"Revenue split for the year {revenue_year}",
+            "pie": revenue_split,
+        }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
         return []
-    
+
 
 class ExpenseSplitByYear(Action):
-
     def name(self) -> Text:
         return "expensesplit_by_year_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         expense_year = tracker.get_slot("expense_year")
 
         collection = db["Expenses"]
         # expense_list = collection.find_one({"2018":50000 })
         # print(expense_list)t
         a = collection.find()
-        exp_split={}
+        exp_split = {}
         for i in a:
-            exp_split[i['Categories']]=i[f'{expense_year}']
+            exp_split[i["Categories"]] = i[f"{expense_year}"]
         print(exp_split)
 
-
-        dispatcher.utter_message(text=f"Expense split for the year {expense_year} is {exp_split}")
-        
+        send = {"msg": f"Expense split for the Year {expense_year}", "pie": exp_split}
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
         return []
-    
-class LeaveBalance(Action):
 
+
+class LeaveBalance(Action):
     def name(self) -> Text:
         return "Leave_balance_action"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         collection = db["Leave"]
         a = collection.find()
-        leave_balance={}
+        leave_balance = {}
         for i in a:
-            leave_balance[i['Leave Type']]=i['NoofDays']
+            leave_balance[i["Leave Type"]] = i["NoofDays"]
         print(leave_balance)
-
-        dispatcher.utter_message(text=f"The available leaves are {leave_balance}")
-        
+        send = {"msg": "The available leaves are", "donut": leave_balance}
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
         return []
 

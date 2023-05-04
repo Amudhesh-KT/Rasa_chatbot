@@ -18,18 +18,86 @@ import ChatBotIcon from "./chatbot.png";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
+// Charts
+import Chart from "react-apexcharts";
+
 const Home = () => {
-  const [chat, setChat] = useState([]);
+  const [chat, setChat] = useState([
+    // {
+    //   sender: "user",
+    //   sender_id: "Name",
+    //   msg: "Hi how are you Buddy?",
+    //   chat_id: 1,
+    //   actions: [],
+    //   links: [],
+    //   details: {},
+    // },
+    // {
+    //   sender: "bot",
+    //   sender_id: "Name",
+    //   msg: "Hi i am a ChatBot. What would you like me to do? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+    //   chat_id: 2,
+    //   actions: ["PR 100001232", "Item No 260"],
+    //   links: [
+    //     {
+    //       link: "https://chat.openai.com/",
+    //       tag: "ChatGPT",
+    //     },
+    //     {
+    //       link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Corporate%20Attire%20Policy.pdf?csf=1&web=1&e=nhNR98",
+    //       tag: "Corporate attire",
+    //     },
+    //     {
+    //       link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
+    //       tag: "Over-time",
+    //     },
+    //   ],
+    //   details: { "Pending Request Number": "DFUIVFIEVWIF" },
+    //   donutChart: {
+    //     "Marketing Expense": 67854,
+    //     "Operational Expense": 99794,
+    //     "Research Expense": 76803,
+    //     "Capital Expense": 557890,
+    //   },
+    //   cards: [
+    //     {
+    //       title: "Commision Revenue",
+    //       year: "2018",
+    //       value: "458790",
+    //     },
+    //   ],
+    // },
+  ]);
   const [inputMessage, setInputMessage] = useState("");
   const [botTyping, setBotTyping] = useState(false);
   const [userTyping, setUserTyping] = useState(false);
   const [chatIDCounter, setChatIDCounter] = useState(1);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [viewMoreState, setViewMoreState] = useState({
     id: 0,
     count: 10,
   });
   const chatScreenContent = useRef();
+
+  var floor = Math.floor,
+    abs = Math.abs,
+    log = Math.log,
+    round = Math.round,
+    min = Math.min;
+  var abbrev = ["K", "M", "B"]; // abbreviations in steps of 1000x; extensible if need to edit
+
+  function rnd(n, precision) {
+    var prec = 10 ** precision;
+    return round(n * prec) / prec;
+  }
+
+  function NumberFormat(n) {
+    var base = floor(log(abs(n)) / log(1000));
+    var suffix = abbrev[min(abbrev.length - 1, base - 1)];
+    base = abbrev.indexOf(suffix) + 1;
+    return suffix ? rnd(n / 1000 ** base, 2) + suffix : "" + n;
+  }
+
   useEffect(() => {
     chatScreenContent.current.scrollTop =
       chatScreenContent.current.scrollHeight;
@@ -64,7 +132,7 @@ const Home = () => {
   const handleButtonRequest = (actionValue) => {
     setUserTyping(false);
 
-    const name = "diwa";
+    const name = "shreyas";
     const request_temp = {
       sender: "user",
       sender_id: name,
@@ -105,13 +173,27 @@ const Home = () => {
             response_temp = {
               sender: "bot",
               recipient_id: recipient_id,
-              msg: recipient_msg["msg"],
-              actions: recipient_msg["requests"]
-                ? recipient_msg["requests"]
-                : [],
-              links: recipient_msg["links"] ? recipient_msg["links"] : [],
-              details: recipient_msg["details"] ? recipient_msg["details"] : {},
             };
+            if (recipient_msg["msg"])
+              response_temp["msg"] = recipient_msg["msg"];
+
+            if (recipient_msg["requests"])
+              response_temp["actions"] = recipient_msg["requests"];
+
+            if (recipient_msg["links"])
+              response_temp["links"] = recipient_msg["links"];
+
+            if (recipient_msg["details"])
+              response_temp["details"] = recipient_msg["details"];
+
+            if (recipient_msg["donut"])
+              response_temp["donutChart"] = recipient_msg["donut"];
+
+            if (recipient_msg["pie"])
+              response_temp["pieChart"] = recipient_msg["pie"];
+
+            if (recipient_msg["cards"])
+              response_temp["cards"] = recipient_msg["cards"];
           } catch {
             recipient_msg = temp["text"];
             response_temp = {
@@ -133,6 +215,240 @@ const Home = () => {
         }
       });
   };
+  function displayDonut(values) {
+    const labels = [];
+    const series = [];
+
+    for (const [key, value] of Object.entries(values)) {
+      labels.push(key);
+      series.push(value);
+    }
+
+    const ChartData = {
+      series,
+      options: {
+        chart: {
+          type: "donut",
+          height: "300px",
+          width: "auto",
+          background: "transparent",
+          horizontalAlign: "left",
+        },
+        // fill:{
+        //   colors: ['#264653', '#2a9d8f', '#e9c46a',"#f4a261"]
+        // },
+        plotOptions: {
+          pie: {
+            customScale: 1,
+            expandOnClick: true,
+            donut: {
+              size: "62%",
+              background: "transparent",
+              labels: {
+                show: true,
+                name: {
+                  show: true,
+                  formatter: function (val) {
+                    return val.split(" ")[0];
+                  },
+                },
+                value: {
+                  show: true,
+                  fontSize: "15px",
+                  fontFamily: "Helvetica, Arial, sans-serif",
+                  fontWeight: "bold",
+                  color: darkMode ? "lightcyan" : "rgb(44, 56, 128)",
+                  offsetY: 10,
+                  formatter: function (val) {
+                    return NumberFormat(val);
+                  },
+                },
+                total: {
+                  show: true,
+                  showAlways: false,
+                  label: "Total",
+                  fontSize: "16px",
+                  fontFamily: "Helvetica, Arial, sans-serif",
+                  fontWeight: 600,
+                  color: darkMode ? "white" : "black",
+                  formatter: function (w) {
+                    return NumberFormat(
+                      w.globals.seriesTotals.reduce((a, b) => {
+                        return a + b;
+                      }, 0)
+                    );
+                  },
+                },
+              },
+            },
+          },
+        },
+        labels,
+        legend: {
+          show: true,
+          fontSize: "13px",
+          fontWeight: "500",
+          position: "bottom",
+          letterSpacing: "10px",
+          horizontalAlign: "left",
+          labels: {
+            colors: darkMode ? "#fff" : "#000",
+          },
+        },
+        theme: { mode: "dark", palette: darkMode ? "palette1" : "palette7" },
+        dataLabels: {
+          enabled: true,
+          offsetY: -20,
+          formatter: (val, opts) => {
+            return NumberFormat(
+              opts["w"]["config"]["series"][opts["seriesIndex"]]
+            );
+          },
+          style: {
+            fontSize: "10px",
+            fontWeight: "bolder",
+            fontFamily: "Helvetica, Arial",
+            colors: ["white"],
+          },
+        },
+        stroke: {
+          show: true,
+          curve: "smooth",
+          lineCap: "round",
+          width: 1,
+          colors: darkMode ? ["#31314f"] : ["white"],
+        },
+        total: {
+          show: true,
+          showAlways: true,
+          label: "Total",
+          fontSize: "22px",
+          fontFamily: "Helvetica, Arial, sans-serif",
+          fontWeight: 600,
+          color: "#373d3f",
+          formatter: function (w) {
+            return NumberFormat(
+              w.globals.seriesTotals.reduce((a, b) => {
+                return a + b;
+              }, 0)
+            );
+          },
+        },
+      },
+    };
+    return (
+      <div
+        style={{
+          width: "100%",
+          margin: "5px 0px",
+        }}
+      >
+        <Chart
+          options={ChartData.options}
+          series={ChartData.series}
+          type="donut"
+          height="500px"
+          width="100%"
+        />
+      </div>
+    );
+  }
+  function displayPie(values) {
+    const labels = [];
+    const series = [];
+
+    for (const [key, value] of Object.entries(values)) {
+      labels.push(key);
+      series.push(value);
+    }
+
+    const ChartData = {
+      series,
+      options: {
+        chart: {
+          type: "pie",
+          height: "300px",
+          width: "auto",
+          background: "transparent",
+          horizontalAlign: "left",
+        },
+        // fill:{
+        //   colors: ['#264653', '#2a9d8f', '#e9c46a',"#f4a261"]
+        // },
+        plotOptions: {
+          pie: {
+            customScale: 1,
+            expandOnClick: true,
+          },
+        },
+        labels,
+        legend: {
+          show: true,
+          fontSize: "13px",
+          fontWeight: "500",
+          position: "bottom",
+          letterSpacing: "10px",
+          horizontalAlign: "left",
+          labels: {
+            colors: darkMode ? "#fff" : "#000",
+          },
+        },
+        theme: { mode: "dark", palette: darkMode ? "palette1" : "palette7" },
+        dataLabels: {
+          enabled: true,
+          offsetY: 20,
+          formatter: (val, opts) => {
+            return NumberFormat(
+              opts["w"]["config"]["series"][opts["seriesIndex"]]
+            );
+          },
+          style: {
+            fontSize: "10px",
+            fontWeight: "bolder",
+            fontFamily: "Helvetica, Arial",
+            colors: ["white"],
+          },
+        },
+        stroke: {
+          show: true,
+          curve: "smooth",
+          lineCap: "round",
+          width: 1,
+          colors: darkMode ? ["#31314f"] : ["white"],
+        },
+        // responsive: [
+        //   {
+        //     breakpoint: 480,
+        //     options: {
+        //       chart: {
+        //         width: 200,
+        //       },
+        //       legend: {
+        //         position: "bottom",
+        //       },
+        //     },
+        //   },
+        // ],
+      },
+    };
+    return (
+      <div
+        style={{
+          width: "100%",
+          margin: "5px 0px",
+        }}
+      >
+        <Chart
+          options={ChartData.options}
+          series={ChartData.series}
+          type="pie"
+          height="500px"
+          width="100%"
+        />
+      </div>
+    );
+    return <>Hello</>;
+  }
 
   return (
     <div
@@ -315,7 +631,8 @@ const Home = () => {
                   ) : (
                     <></>
                   )}
-                  {Object.keys(chatContent.details).length > 0 ? (
+                  {chatContent.details &&
+                  Object.keys(chatContent.details).length > 0 ? (
                     <div
                       className="chatscreen-content-details"
                       style={{
@@ -352,6 +669,61 @@ const Home = () => {
                           </div>
                         )
                       )}
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {chatContent.donutChart ? (
+                    displayDonut(chatContent.donutChart)
+                  ) : (
+                    <></>
+                  )}
+                  {chatContent.pieChart ? (
+                    displayPie(chatContent.pieChart)
+                  ) : (
+                    <></>
+                  )}
+                  {chatContent.cards ? (
+                    <div className="chatscreen-content-cards-container">
+                      {chatContent.cards.map((card, index) => {
+                        return (
+                          <div
+                            class="basic-column"
+                            style={{
+                              width: "100%",
+                              marginBottom: "10px",
+                              marginTop: "10px",
+                            }}
+                          >
+                            <div class="tag-wrapper">
+                              <div
+                                class="number-card number-card-content2"
+                                style={{
+                                  backgroundImage: darkMode
+                                    ? "-webkit-linear-gradient(270deg, #7042bf, #3023ae)"
+                                    : "rgb(0,27,74)",
+                                  backgroundImage: darkMode
+                                    ? "linear-gradient(180deg, #7042bf, #3023ae)"
+                                    : "linear-gradient(180deg, rgba(0,27,74,1) 5%, rgba(44,56,128,1) 97%)",
+                                }}
+                              >
+                                <div class="number-card-title">
+                                  {card.title}
+                                </div>
+                                <div class="number-card-divider"></div>
+                                <h1 class="number-card-number">
+                                  {NumberFormat(card.value)}
+                                </h1>
+                                <div class="number-card-progress-wrapper">
+                                  <div class="tagline number-card-currency">
+                                    {card.year}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   ) : (
                     <></>
