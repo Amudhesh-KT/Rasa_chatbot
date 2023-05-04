@@ -23,50 +23,50 @@ import Chart from "react-apexcharts";
 
 const Home = () => {
   const [chat, setChat] = useState([
-    {
-      sender: "user",
-      sender_id: "Name",
-      msg: "Hi how are you Buddy?",
-      chat_id: 1,
-      actions: [],
-      links: [],
-      details: {},
-    },
-    {
-      sender: "bot",
-      sender_id: "Name",
-      msg: "Hi i am a ChatBot. What would you like me to do? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-      chat_id: 2,
-      actions: ["PR 100001232", "Item No 260"],
-      links: [
-        {
-          link: "https://chat.openai.com/",
-          tag: "ChatGPT",
-        },
-        {
-          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Corporate%20Attire%20Policy.pdf?csf=1&web=1&e=nhNR98",
-          tag: "Corporate attire",
-        },
-        {
-          link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
-          tag: "Over-time",
-        },
-      ],
-      details: { "Pending Request Number": "DFUIVFIEVWIF" },
-      donutChart: {
-        "Marketing Expense": 67854,
-        "Operational Expense": 99794,
-        "Research Expense": 76803,
-        "Capital Expense": 557890,
-      },
-      cards: [
-        {
-          title: "Commision Revenue",
-          year: "2018",
-          value: "458790",
-        },
-      ],
-    },
+    // {
+    //   sender: "user",
+    //   sender_id: "Name",
+    //   msg: "Hi how are you Buddy?",
+    //   chat_id: 1,
+    //   actions: [],
+    //   links: [],
+    //   details: {},
+    // },
+    // {
+    //   sender: "bot",
+    //   sender_id: "Name",
+    //   msg: "Hi i am a ChatBot. What would you like me to do? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+    //   chat_id: 2,
+    //   actions: ["PR 100001232", "Item No 260"],
+    //   links: [
+    //     {
+    //       link: "https://chat.openai.com/",
+    //       tag: "ChatGPT",
+    //     },
+    //     {
+    //       link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Corporate%20Attire%20Policy.pdf?csf=1&web=1&e=nhNR98",
+    //       tag: "Corporate attire",
+    //     },
+    //     {
+    //       link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
+    //       tag: "Over-time",
+    //     },
+    //   ],
+    //   details: { "Pending Request Number": "DFUIVFIEVWIF" },
+    //   donutChart: {
+    //     "Marketing Expense": 67854,
+    //     "Operational Expense": 99794,
+    //     "Research Expense": 76803,
+    //     "Capital Expense": 557890,
+    //   },
+    //   cards: [
+    //     {
+    //       title: "Commision Revenue",
+    //       year: "2018",
+    //       value: "458790",
+    //     },
+    //   ],
+    // },
   ]);
   const [inputMessage, setInputMessage] = useState("");
   const [botTyping, setBotTyping] = useState(false);
