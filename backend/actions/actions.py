@@ -1135,9 +1135,18 @@ class ActionPrNumberwithItem(Action):
         print(f"{pr_number}, {pr_itemnumber}")
 
         pritemdesc = pritemdetails(pr_number, pr_itemnumber)
-        print(pritemdesc)
+        # print(pritemdesc)
 
-        dispatcher.utter_message(text=f"pr number with item is working {pr_number}, {pr_itemnumber} \n {pritemdesc} ")
+        send = {
+            "msg": "Here is the Details of Purchase Requisition... ",
+            "details": pritemdesc,
+        }
+        my_json = json.dumps(send)
+
+        
+        dispatcher.utter_message(text=my_json)
+
+        # dispatcher.utter_message(text=f"pr number with item is working {pr_number}, {pr_itemnumber} \n {pritemdesc} ")
 
         return []
 
@@ -1154,11 +1163,20 @@ class ActionPoNumberwithItem(Action):
         po_number = tracker.get_slot("ponumber")
 
         poitemdesc = poitemdetails(po_number, po_itemnumber)
-        print(poitemdesc)
+        # print(poitemdesc)
+
+        send = {
+            "msg": "Here is the Details of Purchase Order... ",
+            "details": poitemdesc,
+        }
+        my_json = json.dumps(send)
+
+
+        dispatcher.utter_message(text=my_json)
 
 
 
-        dispatcher.utter_message(text=f"po number with item is working {po_number}, {po_itemnumber} \n {poitemdesc}")
+        # dispatcher.utter_message(text=f"po number with item is working {po_number}, {po_itemnumber} \n {poitemdesc}")
 
         return []
 
@@ -1708,3 +1726,42 @@ class LeaveBalance(Action):
 
 
 # ************************************** revenue and expense split and leaves ********************************
+
+
+# **************************************Revenue over the years line chart  *****************************************************
+
+class RevenueOverTheYears(Action):
+
+    def name(self) -> Text:
+        return "Revenue_linechart_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        collection = db["Revenue"]
+        # a = collection.find()
+
+
+        start_year=2018
+        end_year=2022
+        year_list=[str(year) for year in range(start_year, end_year + 1)]
+        total_revenue={}
+        for i in range(0,len(year_list)):
+            year=year_list[i]
+            revenue=0
+            a = collection.find()
+            for j in a:
+                revenue+=j[year]
+            total_revenue[year]=revenue
+        # print(total_revenue)
+
+        print(f"Im inside revenue over the years action  \n {total_revenue}")
+
+    
+
+        dispatcher.utter_message(text=f"The revenue for the years are {total_revenue}" )
+
+        return []
+
+# **************************************Revenue over the years line chart  *****************************************************

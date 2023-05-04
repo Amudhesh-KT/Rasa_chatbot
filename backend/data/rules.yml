@@ -313,3 +313,14 @@ rules:
 
 # ************************************* revenue expnese slit and leave *******************************************
 
+
+# **************************************Revenue over the years line chart  *****************************************************
+
+- rule: revenue over the years (Linechart)
+  steps:
+  - intent: Revenue_linechart_intent
+  - action: Revenue_linechart_action
+
+
+
+# **************************************Revenue over the years line chart  *****************************************************

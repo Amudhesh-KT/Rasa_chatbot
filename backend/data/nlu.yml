@@ -8633,7 +8633,20 @@ nlu:
 
 
 
-# **************************************Revenue *****************************************************
+# **************************************Revenue over the years line chart  *****************************************************
+
+- intent: Revenue_linechart_intent
+  examples: |
+    - What is my overall revenue
+    - What is my overall revenue growth?
+    - what is revenue over the years
+    - my revenue so far
+    - overall revenue
+    - show me the overall revenue
+    - can please fetch me the overall revenue
+    - What is the overall revenue
+    - What is the overall revenue growth?
 
 
-# **************************************Revenue *****************************************************
+# **************************************Revenue over the years line chart  *****************************************************
+

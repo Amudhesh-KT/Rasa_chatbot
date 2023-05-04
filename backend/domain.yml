@@ -66,6 +66,9 @@ intents:
   - Taxes_expense_intent
 
 
+  - Revenue_linechart_intent
+
+
 
 actions:
   - action_show_time
@@ -124,6 +127,11 @@ actions:
   - Research_expense_action
   - Capital_expense_action
   - Taxes_expense_action
+
+
+  - Revenue_linechart_action
+
+
 
 
 # ************************************************ Ticket form ***************************************************
