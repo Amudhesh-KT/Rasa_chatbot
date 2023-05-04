@@ -321,6 +321,14 @@ rules:
   - intent: Revenue_linechart_intent
   - action: Revenue_linechart_action
 
-
-
 # **************************************Revenue over the years line chart  *****************************************************
+
+
+# **************************************Expense over the years line chart  *****************************************************
+
+- rule: Expense over the years (Linechart)
+  steps:
+  - intent: Expense_linechart_intent
+  - action: Expense_linechart_action
+
+# **************************************Expense over the years line chart  *****************************************************

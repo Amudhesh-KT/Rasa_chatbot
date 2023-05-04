@@ -1920,12 +1920,47 @@ class RevenueOverTheYears(Action):
             total_revenue[year]=revenue
         # print(total_revenue)
 
-        print(f"Im inside revenue over the years action  \n {total_revenue}")
+        # print(f"Im inside revenue over the years action  \n {total_revenue}")
 
-    
-
-        dispatcher.utter_message(text=f"The revenue for the years are {total_revenue}" )
+        send = {"msg": "Revenue over the years.", "line": total_revenue}
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
         return []
 
 # **************************************Revenue over the years line chart  *****************************************************
+
+# **************************************Expense over the years line chart  *****************************************************
+
+class ExpenseOverTheYears(Action):
+
+    def name(self) -> Text:
+        return "Expense_linechart_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        collection = db["Expenses"]
+        
+        start_year=2018
+        end_year=2022
+
+        year_list=[str(year) for year in range(start_year, end_year + 1)]
+        total_expense={}
+
+        for i in range(0,len(year_list)):
+            year=year_list[i]
+            expense=0
+            a = collection.find()
+        for j in a:
+            expense+=j[year]
+        total_expense[year]=expense
+        print(total_expense)
+
+        send = {"msg": "Expenses over the years.", "line": total_expense}
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
+
+        return []
+# **************************************Expense over the years line chart  *****************************************************

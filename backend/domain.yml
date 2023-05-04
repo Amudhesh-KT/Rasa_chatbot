@@ -67,6 +67,7 @@ intents:
 
 
   - Revenue_linechart_intent
+  - Expense_linechart_intent
 
 
 
@@ -130,6 +131,7 @@ actions:
 
 
   - Revenue_linechart_action
+  - Expense_linechart_action
 
 
 
