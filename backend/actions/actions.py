@@ -1917,8 +1917,9 @@ class RevenueOverTheYears(Action):
             a = collection.find()
             for j in a:
                 revenue+=j[year]
+        
             total_revenue[year]=revenue
-        # print(total_revenue)
+        print(total_revenue)
 
         # print(f"Im inside revenue over the years action  \n {total_revenue}")
 
@@ -1941,21 +1942,25 @@ class ExpenseOverTheYears(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
+        print("im inside expense line chart")
+
         collection = db["Expenses"]
         
         start_year=2018
         end_year=2022
 
         year_list=[str(year) for year in range(start_year, end_year + 1)]
+
         total_expense={}
 
         for i in range(0,len(year_list)):
             year=year_list[i]
             expense=0
             a = collection.find()
-        for j in a:
-            expense+=j[year]
-        total_expense[year]=expense
+            for j in a:
+                expense+=j[year]
+        
+            total_expense[year]=expense
         print(total_expense)
 
         send = {"msg": "Expenses over the years.", "line": total_expense}

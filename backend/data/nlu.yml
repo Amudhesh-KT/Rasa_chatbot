@@ -361,7 +361,7 @@ nlu:
 
 - intent: InternalComplaintsCommitteePolicy
   examples: |
-    - icc policy
+    - kicc policy
     - internal complaints committee policy?
     - What is the process for filing a complaint with the internal complaints committee?
     - Who can file a complaint with the internal complaints committee?
