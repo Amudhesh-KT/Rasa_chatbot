@@ -4088,7 +4088,8 @@ nlu:
 
 - intent: Pr_with_item
   examples: |
-    - pr [12345678](pr_number) pr item number [124](pr_itemnumber)
+    - pr [10000640](pr_number) pr item [220](pr_itemnumber)
+    - pr [10000640](pr_number) pr item number [220](pr_itemnumber)
     - pr [12345678](pr_number) pr item [124](pr_itemnumber)
     - pr number is [12345678](pr_number) pr item number is [124](pr_itemnumber)
     - purchase requisition number [12345678](pr_number) purchase requisition item number [124](pr_itemnumber)
@@ -8949,4 +8950,59 @@ nlu:
     - could you compare the annual expn
     
     
-# **************************************Expense over the years line chart  *****************************************************
+# ************************************** Expense over the years line chart  *****************************************************
+
+# ******************************************* Pending pr ***********************************************************************
+
+- intent: Pending_pr_intent
+  examples: |
+    - Show me pending pr
+    - Show me my pending pr
+    - Display the pending
+    - pending pr
+    - show me the pr to approve
+    - show me pending purchase requisition
+    - can you show me the pending pr
+    - what are all the pending pr 
+    - what are pr are pending
+    - get me the pending pr
+    - can you get me the pending pr 
+
+    - Show me pending purchase requisition
+    - Show me my pending purchase requisition
+    - Display the pending
+    - pending purchase requisition
+    - show me the purchase requisition to appurchase requisitionove
+    - show me pending purchase requisition
+    - can you show me the pending purchase requisition
+    - what are all the pending purchase requisition 
+    - what are purchase requisition are pending
+    - get me the pending purchase requisition
+    - can you get me the pending purchase requisition 
+
+    - Show me pending Purchase Requisition
+    - Show me my pending Purchase Requisition
+    - Display the pending
+    - pending Purchase Requisition
+    - show me the Purchase Requisition to apPurchase Requisitionove
+    - show me pending Purchase Requisition
+    - can you show me the pending Purchase Requisition
+    - what are all the pending Purchase Requisition 
+    - what are Purchase Requisition are pending
+    - get me the pending Purchase Requisition
+    - can you get me the pending Purchase Requisition 
+
+
+    - Show me pending PR
+    - Show me my pending PR
+    - Display the pending
+    - pending PR
+    - show me the PR to apPRove
+    - show me pending PR
+    - can you show me the pending PR
+    - what are all the pending PR 
+    - what are PR are pending
+    - get me the pending PR
+    - can you get me the pending PR 
+
+  # ******************************************* Pending pr ***********************************************************************
