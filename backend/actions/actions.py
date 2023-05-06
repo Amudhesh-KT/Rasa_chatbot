@@ -1923,7 +1923,13 @@ class RevenueOverTheYears(Action):
 
         # print(f"Im inside revenue over the years action  \n {total_revenue}")
 
-        send = {"msg": "Revenue over the years.", "line": total_revenue}
+        send = { "line":{
+                                "title": "Revenue Over the Years",
+                                "name": "Revenue",
+        "xlabel": "Year",
+        "data": total_revenue,
+        } }
+        
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
 
@@ -1942,7 +1948,6 @@ class ExpenseOverTheYears(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        print("im inside expense line chart")
 
         collection = db["Expenses"]
         
@@ -1963,7 +1968,15 @@ class ExpenseOverTheYears(Action):
             total_expense[year]=expense
         print(total_expense)
 
-        send = {"msg": "Expenses over the years.", "line": total_expense}
+    
+        
+        send = { "line":{
+                                "title": "Expenses over the years",
+                                "name": "Expense",
+        "xlabel": "Year",
+        "data": total_expense,
+        } }
+
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
 

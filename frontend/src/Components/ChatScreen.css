@@ -23,11 +23,13 @@
 .chatscreen-container {
   width: 90vw;
   border-radius: 6px;
-  height: 90vh;
+  height: 75vh;
   position: absolute;
   right: 50%;
-  bottom: 50%;
-  transform: translate(50%, 50%);
+  /* bottom: 50%; */
+  top: 2%;
+  /* transform: translate(50%, 50%); */
+  transform: translate(50%, 0%);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .chatscreen-header {
@@ -351,6 +353,14 @@ display: flex;
   border-radius: 6px;
 }
 
+.chatscreen-lineChart {
+  width: 100%;
+  /* transform: translate(-20px, 15px); */
+  margin: 5px 0px;
+  margin-top: 15px;
+  margin-left: 0px;
+}
+
 @keyframes blink {
   0% {
     opacity: 0.1;
@@ -364,6 +374,14 @@ display: flex;
 }
 
 @media only screen and (min-width: 900px) {
+  .chatscreen-lineChart {
+    width: 100%;
+    transform: translateX(0);
+    margin: 5px 0px;
+  }
+  .chatscreen-container {
+    height: 90vh;
+  }
   .chatscreen-header-logo > img {
     width: 15%;
   }
