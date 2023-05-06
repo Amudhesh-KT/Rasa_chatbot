@@ -105,19 +105,23 @@ def pritemdetails(prno, pritemno):
     js_obj = json.loads(js)
     flatjs = flatten(js_obj)
     desc = {}
-    desc['Purchase_Requisition_Number'] = flatjs['entry_content_m:properties_d:PurchaseRequisition']
-    desc['Purchase_Requisition_Item_Number'] = flatjs['entry_content_m:properties_d:PurchaseRequisitionItem']
-    desc['Purchase_Requisition_Release_Status'] = flatjs['entry_content_m:properties_d:PurReqnReleaseStatus']
-    desc['Purchase_Requisition_Item_Text'] = flatjs['entry_content_m:properties_d:PurchaseRequisitionItemText']
-    desc['Purchase_Requisition_Material_Group'] = flatjs['entry_content_m:properties_d:MaterialGroup']
-    desc['Requested_Quantity'] = flatjs['entry_content_m:properties_d:RequestedQuantity']
-    desc['Base_Unit'] = flatjs['entry_content_m:properties_d:BaseUnit']
-    desc['Purchase_Requisition_Price'] = flatjs['entry_content_m:properties_d:PurchaseRequisitionPrice']
-    desc['Plant'] = flatjs['entry_content_m:properties_d:Plant']
-    desc['Company_Code'] = flatjs['entry_content_m:properties_d:CompanyCode']
-    desc['Processing_Status'] = flatjs['entry_content_m:properties_d:ProcessingStatus']
-    desc['Delivery_Date'] = flatjs['entry_content_m:properties_d:DeliveryDate']
-    desc['Creation_Date'] = flatjs['entry_content_m:properties_d:CreationDate']
+    try:
+        desc['Purchase_Requisition_Number'] = flatjs['entry_content_m:properties_d:PurchaseRequisition']
+        desc['Purchase_Requisition_Item_Number'] = flatjs['entry_content_m:properties_d:PurchaseRequisitionItem']
+        desc['Purchase_Requisition_Release_Status'] = flatjs['entry_content_m:properties_d:PurReqnReleaseStatus']
+        desc['Purchase_Requisition_Item_Text'] = flatjs['entry_content_m:properties_d:PurchaseRequisitionItemText']
+        desc['Purchase_Requisition_Material_Group'] = flatjs['entry_content_m:properties_d:MaterialGroup']
+        desc['Requested_Quantity'] = flatjs['entry_content_m:properties_d:RequestedQuantity']
+        desc['Base_Unit'] = flatjs['entry_content_m:properties_d:BaseUnit']
+        desc['Purchase_Requisition_Price'] = flatjs['entry_content_m:properties_d:PurchaseRequisitionPrice']
+        desc['Plant'] = flatjs['entry_content_m:properties_d:Plant']
+        desc['Company_Code'] = flatjs['entry_content_m:properties_d:CompanyCode']
+        desc['Processing_Status'] = flatjs['entry_content_m:properties_d:ProcessingStatus']
+        desc['Delivery_Date'] = flatjs['entry_content_m:properties_d:DeliveryDate']
+        desc['Creation_Date'] = flatjs['entry_content_m:properties_d:CreationDate']
+    except Exception as e:
+        print(e)
+        
     return desc
 
 def poitemdetails(pono, poitemno):

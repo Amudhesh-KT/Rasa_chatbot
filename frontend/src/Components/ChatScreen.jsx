@@ -23,56 +23,62 @@ import Chart from "react-apexcharts";
 
 const Home = () => {
   const [chat, setChat] = useState([
-    // {
-    //   sender: "user",
-    //   sender_id: "Name",
-    //   msg: "Hi how are you Buddy?",
-    //   chat_id: 1,
-    //   actions: [],
-    //   links: [],
-    //   details: {},
-    // },
-    // {
-    //   sender: "bot",
-    //   sender_id: "Name",
-    //   msg: "Hi i am a ChatBot. What would you like me to do? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-    //   chat_id: 2,
-    //   actions: ["PR 100001232", "Item No 260"],
-    //   links: [
-    //     {
-    //       link: "https://chat.openai.com/",
-    //       tag: "ChatGPT",
-    //     },
-    //     {
-    //       link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Corporate%20Attire%20Policy.pdf?csf=1&web=1&e=nhNR98",
-    //       tag: "Corporate attire",
-    //     },
-    //     {
-    //       link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
-    //       tag: "Over-time",
-    //     },
-    //   ],
-    //   details: { "Pending Request Number": "DFUIVFIEVWIF" },
-    //   donutChart: {
-    //     "Marketing Expense": 67854,
-    //     "Operational Expense": 99794,
-    //     "Research Expense": 76803,
-    //     "Capital Expense": 557890,
-    //   },
-    //   cards: [
-    //     {
-    //       title: "Commision Revenue",
-    //       year: "2018",
-    //       value: "458790",
-    //     },
-    //   ],
-    // },
+    {
+      sender: "bot",
+      sender_id: "Name",
+      chat_id: 2,
+      // msg: "Hi i am a ChatBot. What would you like me to do? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      // actions: ["PR 100001232", "Item No 260"],
+      // links: [
+      //   {
+      //     link: "https://chat.openai.com/",
+      //     tag: "ChatGPT",
+      //   },
+      //   {
+      //     link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Corporate%20Attire%20Policy.pdf?csf=1&web=1&e=nhNR98",
+      //     tag: "Corporate attire",
+      //   },
+      //   {
+      //     link: "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
+      //     tag: "Over-time",
+      //   },
+      // ],
+      details: {
+        showButtons: true,
+        data: { "Purchase Requisition Number": "10000640" },
+      },
+      // donutChart: {
+      //   "Marketing Expense": 67854,
+      //   "Operational Expense": 99794,
+      //   "Research Expense": 76803,
+      //   "Capital Expense": 557890,
+      // },
+      // lineChart: {
+      //   title: "Revenue of Commondity",
+      //   name: "Leave Request",
+      //   xlabel: "Year",
+      //   data: {
+      //     2018: 522434,
+      //     2019: 654905,
+      //     2020: 660736,
+      //     2021: 900837,
+      //     2022: 846908,
+      //   },
+      // },
+      // cards: [
+      //   {
+      //     title: "Commision Revenue",
+      //     year: "2018",
+      //     value: "458790",
+      //   },
+      // ],
+    },
   ]);
   const [inputMessage, setInputMessage] = useState("");
   const [botTyping, setBotTyping] = useState(false);
   const [userTyping, setUserTyping] = useState(false);
   const [chatIDCounter, setChatIDCounter] = useState(1);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [viewMoreState, setViewMoreState] = useState({
     id: 0,
     count: 10,
@@ -120,7 +126,7 @@ const Home = () => {
       chat_id: chatIDCounter,
       actions: [],
       links: [],
-      details: {},
+      details: { showButtons: false, data: {} },
     };
 
     setChat((chat) => [...chat, request_temp]);
@@ -140,7 +146,7 @@ const Home = () => {
       msg: actionValue,
       actions: [],
       links: [],
-      details: {},
+      details: { showButtons: false, data: {} },
     };
 
     setChat((chat) => [...chat, request_temp]);
@@ -148,16 +154,19 @@ const Home = () => {
     setBotTyping(true);
     rasaAPI(name, actionValue);
   };
-
+  // Line Charts
   const rasaAPI = async function handleClick(name, msg) {
     await fetch("http://localhost:5005/webhooks/rest/webhook", {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        charset: "UTF-8",
-      },
-      credentials: "same-origin",
+      // mode: "cors",
+      // headers: {
+      //   Accept: "application/json",
+      //   "Content-Type": "application/json",
+      //   charset: "UTF-8",
+      //   "Access-Control-Allow-Origin": "*",
+      //   "Access-Control-Allow-Headers": "*",
+      // },
+      // credentials: "same-origin",
       body: JSON.stringify({ sender: name, message: msg }),
     })
       .then((response) => response.json())
@@ -183,14 +192,26 @@ const Home = () => {
             if (recipient_msg["links"])
               response_temp["links"] = recipient_msg["links"];
 
-            if (recipient_msg["details"])
-              response_temp["details"] = recipient_msg["details"];
+            if (recipient_msg["details"]) {
+              if (recipient_msg["details"]["flag"])
+                response_temp["details"] = {
+                  showButtons: recipient_msg["details"]["flag"] ? true : false,
+                  data: recipient_msg["details"]["data"],
+                };
+              else
+                response_temp["details"] = {
+                  data: recipient_msg["details"]["data"],
+                };
+            }
 
             if (recipient_msg["donut"])
               response_temp["donutChart"] = recipient_msg["donut"];
 
             if (recipient_msg["pie"])
               response_temp["pieChart"] = recipient_msg["pie"];
+
+            if (recipient_msg["line"])
+              response_temp["lineChart"] = recipient_msg["line"];
 
             if (recipient_msg["cards"])
               response_temp["cards"] = recipient_msg["cards"];
@@ -203,7 +224,7 @@ const Home = () => {
               chat_id: chatIDCounter,
               actions: [],
               links: [],
-              details: {},
+              details: { showButtons: false, data: {} },
             };
           }
           setBotTyping(false);
@@ -341,6 +362,11 @@ const Home = () => {
         style={{
           width: "100%",
           margin: "5px 0px",
+          padding: "5px 0px",
+          borderRadius: "6px",
+          background: darkMode
+            ? "rgba(60, 82, 178, 0.20)"
+            : "rgb(11 92 172 / 5%)",
         }}
       >
         <Chart
@@ -448,6 +474,207 @@ const Home = () => {
       </div>
     );
     return <>Hello</>;
+  }
+  function displayLine(values) {
+    const labels = [];
+    const data = [];
+    for (const [key, value] of Object.entries(values["data"])) {
+      labels.push(key);
+      data.push(value);
+    }
+
+    const ChartData = {
+      series: [
+        {
+          name: values["name"],
+          data,
+        },
+      ],
+      options: {
+        chart: {
+          height: 350,
+          type: "line",
+          zoom: {
+            enabled: false,
+          },
+        },
+        // legend: {
+        //   show: true,
+        //   showForSingleSeries: true,
+        //   showForNullSeries: true,
+        //   showForZeroSeries: true,
+        //   offsetY: 10,
+        //   fontSize: "13px",
+        //   fontWeight: "500",
+        //   position: "bottom",
+        //   letterSpacing: "10px",
+        //   horizontalAlign: "left",
+        //   labels: {
+        //     colors: darkMode ? "#fff" : "#000",
+        //   },
+        // },
+        theme: {
+          monochrome: {
+            enabled: true,
+            color: "#EA3546",
+          },
+        },
+        dataLabels: {
+          enabled: true,
+          formatter: function (val, opts) {
+            return NumberFormat(val);
+          },
+          offsetX: 2,
+          offsetY: -5.5,
+          textAnchor: "middle",
+          style: {
+            fontSize: "9px",
+            colors: ["white"],
+          },
+          background: {
+            enabled: true,
+            foreColor: "red",
+            padding: 4,
+            borderRadius: 2,
+            borderWidth: 1,
+            borderColor: "#fff",
+          },
+        },
+        title: {
+          text: values["title"],
+          align: "left",
+          style: {
+            color: darkMode ? "#fff" : "#000",
+            fontSize: "14px",
+            fontFamily: "Helvetica, Arial, sans-serif",
+            fontWeight: 600,
+            cssClass: "apexcharts-yaxis-title",
+          },
+        },
+        stroke: {
+          curve: "straight",
+        },
+        markers: {
+          size: 4,
+          colors: undefined,
+          strokeColors: darkMode ? "#fff" : "wheat",
+          strokeWidth: 3,
+          strokeOpacity: 0.9,
+          strokeDashArray: 0,
+          fillOpacity: 1,
+          discrete: [],
+          shape: "circle",
+          radius: 2,
+          offsetX: 0,
+          offsetY: 0,
+          onClick: undefined,
+          onDblClick: undefined,
+          showNullDataPoints: true,
+          hover: {
+            size: undefined,
+            sizeOffset: 3,
+          },
+        },
+        // responsive: [
+        //   {
+        //     breakpoint: 900,
+        //     options: {
+        //       chart: {
+        //         width: "100%",
+        //       },
+        //     },
+        //   },
+        // ],
+        grid: {
+          xaxis: {
+            lines: {
+              show: false, //or just here to disable only x axis grids
+            },
+          },
+          yaxis: {
+            lines: {
+              show: false, //or just here to disable only y axis
+            },
+          },
+        },
+        xaxis: {
+          categories: labels,
+          labels: {
+            show: true,
+            align: "center",
+            hideOverlappingLabels: true,
+            style: {
+              colors: darkMode
+                ? Array(labels.length).fill("#fff")
+                : Array(labels.length).fill("#000"),
+            },
+          },
+          // title: {
+          //   text: values["xlabel"],
+          //   rotate: 0,
+          //   offsetX: 0,
+          //   offsetY: 0,
+          //   style: {
+          //     color: darkMode ? "#fff" : "#000",
+          //     fontSize: "12px",
+          //     fontFamily: "Helvetica, Arial, sans-serif",
+          //     fontWeight: 600,
+          //     cssClass: "apexcharts-yaxis-title",
+          //   },
+          // },
+        },
+        yaxis: {
+          show: true,
+          labels: {
+            show: true,
+            align: "left",
+            hideOverlappingLabels: true,
+            offsetY: -5,
+            style: {
+              colors: darkMode ? ["#fff"] : ["#000"],
+            },
+            formatter: (value) => {
+              console.log(value);
+              return NumberFormat(value);
+            },
+          },
+          floating: true,
+          // title: {
+          //   text: values["name"],
+          //   rotate: 270,
+          //   offsetX: 75,
+          //   offsetY: 0,
+          //   style: {
+          //     color: darkMode ? "#fff" : "#000",
+          //     fontSize: "12px",
+          //     fontFamily: "Helvetica, Arial, sans-serif",
+          //     fontWeight: 600,
+          //     cssClass: "apexcharts-yaxis-title",
+          //   },
+          // },
+        },
+      },
+    };
+    return (
+      <div
+        className="chatscreen-lineChart"
+        style={{
+          padding: "5px 5px 0px 10px",
+          borderRadius: "6px",
+          background: darkMode
+            ? "rgba(60, 82, 178, 0.20)"
+            : "rgb(11 92 172 / 5%)",
+        }}
+      >
+        <Chart
+          options={ChartData.options}
+          series={ChartData.series}
+          type="line"
+          height="350px"
+          width="100%"
+        />
+      </div>
+    );
   }
 
   return (
@@ -632,7 +859,8 @@ const Home = () => {
                     <></>
                   )}
                   {chatContent.details &&
-                  Object.keys(chatContent.details).length > 0 ? (
+                  chatContent.details.data &&
+                  Object.keys(chatContent.details.data).length > 0 ? (
                     <div
                       className="chatscreen-content-details"
                       style={{
@@ -641,7 +869,7 @@ const Home = () => {
                           : "rgb(11 92 172 / 5%)",
                       }}
                     >
-                      {Object.keys(chatContent.details).map(
+                      {Object.keys(chatContent.details.data).map(
                         (key, detailsIndex) => (
                           <div>
                             <span
@@ -664,10 +892,74 @@ const Home = () => {
                                 color: darkMode ? "#e5ebff" : "",
                               }}
                             >
-                              {chatContent.details[key]}
+                              {chatContent.details.data[key]}
                             </span>
                           </div>
                         )
+                      )}
+                      {chatContent.details.showButtons ? (
+                        <div
+                          className="chatscreen-content-details-buttons"
+                          style={{
+                            display: "flex",
+                            width: "100%",
+                            padding: "5px 0px",
+                            alignItems: "center",
+                            justifyContent: "space-evenly",
+                          }}
+                        >
+                          <Button
+                            variant={darkMode ? "contained" : "outlined"}
+                            size="medium"
+                            sx={{
+                              backgroundColor: darkMode ? "#1b5e20" : "white",
+                              fontWeight: "bold",
+                            }}
+                            style={{
+                              margin: "5px 0px",
+                              textTransform: "capitalize",
+                              letterSpacing: "1px",
+                              fontSize: "11px",
+                              fontWeight: "550",
+                              width: "30%",
+                              fontWeight: "700",
+                            }}
+                            color="success"
+                            onClick={(e) => {
+                              handleButtonRequest(
+                                `Approve PR ${chatContent.details.data["Purchase Requisition Number"]}`
+                              );
+                            }}
+                          >
+                            Approve
+                          </Button>
+                          <Button
+                            variant={darkMode ? "contained" : "outlined"}
+                            size="medium"
+                            sx={{
+                              backgroundColor: darkMode ? "#c62828" : "white",
+                            }}
+                            style={{
+                              margin: "5px 0px",
+                              textTransform: "capitalize",
+                              letterSpacing: "1px",
+                              fontSize: "11px",
+                              fontWeight: "550",
+                              width: "30%",
+                              fontWeight: "700",
+                            }}
+                            color="error"
+                            onClick={(e) => {
+                              handleButtonRequest(
+                                `Reject PR ${chatContent.details.data["Purchase Requisition Number"]}`
+                              );
+                            }}
+                          >
+                            Reject
+                          </Button>
+                        </div>
+                      ) : (
+                        <></>
                       )}
                     </div>
                   ) : (
@@ -680,6 +972,11 @@ const Home = () => {
                   )}
                   {chatContent.pieChart ? (
                     displayPie(chatContent.pieChart)
+                  ) : (
+                    <></>
+                  )}
+                  {chatContent.lineChart ? (
+                    displayLine(chatContent.lineChart)
                   ) : (
                     <></>
                   )}
