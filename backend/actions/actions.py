@@ -246,6 +246,8 @@ class ActionPRList(Action):
     ) -> List[Dict[Text, Any]]:
         prlists = prlist()
         prlists = prlists[:50]
+
+        print("im inside pr list")
         # dispatcher.utter_template("utter_givepr",tracker,temp=prlists)
         # message = f"The list of PR's are: {prlists}. Choose a PR Number to display its items"
         send = {
@@ -477,6 +479,7 @@ class ActionPRitemDesc(Action):
                 "data":details,"flag":Pending_PR_Flag
                 }
         }
+        
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
 
@@ -547,10 +550,18 @@ class ActionPOitemDesc(Action):
             "Purchase Requisition Item Number": PRItemNumber,
         }
         # dispatcher.utter_message(text=message)
+        # send = {
+        #     "msg": "Here is the Details of Purchase Requisition... ",
+        #     "details": details,
+        # }
+
         send = {
-            "msg": "Here is the Details of Purchase Requisition... ",
-            "details": details,
+        "msg": "Here is the Details of Purchase Order... ",
+            "details": {
+                "data":details, "flag":Pending_PR_Flag
         }
+        }
+
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
 
@@ -1146,8 +1157,12 @@ class ActionPrNumberwithItem(Action):
 
         send = {
             "msg": "Here is the Details of Purchase Requisition... ",
-            "details": pritemdesc,
+            "details": {
+                "data":pritemdesc,"flag":Pending_PR_Flag
+                }
         }
+
+           
         my_json = json.dumps(send)
 
         
@@ -1171,13 +1186,20 @@ class ActionPoNumberwithItem(Action):
         po_itemnumber = tracker.get_slot("poitemnumber")
         po_number = tracker.get_slot("ponumber")
 
+        print("im inside po with item no")
+
         poitemdesc = poitemdetails(po_number, po_itemnumber)
-        # print(poitemdesc)
+        print(poitemdesc)
 
         send = {
-            "msg": "Here is the Details of Purchase Order... ",
-            "details": poitemdesc,
+        "msg": "Here is the Details of Purchase Order... ",
+            "details": {
+                "data":poitemdesc, "flag":Pending_PR_Flag
         }
+        }
+    
+                
+
         my_json = json.dumps(send)
 
 
@@ -2006,6 +2028,8 @@ class PendingPrMongoDB(Action):
         
         collection = db["PrStatus"]
         a = collection.find({'Status':'Pending'})
+
+        print("im inside pending pr")
 
         pending_pr=[]
 
