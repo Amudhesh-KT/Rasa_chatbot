@@ -125,7 +125,7 @@
   transform: translateY(2px);
 }
 .chatscreen-content-icon {
-  width: 7%;
+  width: 5%;
   display: flex;
   /* align-items: center; */
   justify-content: center;
@@ -150,17 +150,17 @@ display: flex;
 } */
 
 .chatscreen-content-msg {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.8px;
   max-width: 100%;
   height: auto;
   line-height: 17px;
   /* background-color: #2a3eb1; */
   background-color: #2c3880;
-  padding: 6px 10px;
+  padding: 6px 20px;
   color: white;
-  font-weight: 550;
-  border-radius: 6px;
+  font-weight: 500;
+  border-radius: 18px;
 }
 
 .chatscreen-content-chat {
@@ -392,7 +392,7 @@ display: flex;
     width: 30%;
   }
   .chatscreen-content-icon {
-    width: 2%;
+    width: 1.6%;
   }
   .chatscreen-footer-btn img {
     width: 15%;

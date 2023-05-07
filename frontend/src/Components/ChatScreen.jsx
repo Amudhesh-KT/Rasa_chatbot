@@ -27,7 +27,7 @@ const Home = () => {
       sender: "bot",
       sender_id: "Name",
       chat_id: 2,
-      // msg: "Hi i am a ChatBot. What would you like me to do? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      msg: "Hi i am a ChatBot. What would you like me to do? ",
       // actions: ["PR 100001232", "Item No 260"],
       // links: [
       //   {
@@ -43,11 +43,17 @@ const Home = () => {
       //     tag: "Over-time",
       //   },
       // ],
-      details: {
-        showButtons: true,
-        data: { "Purchase Requisition Number": "10000640" },
-      },
+      // details: {
+      //   showButtons: true,
+      //   data: { "Purchase Requisition Number": "10000640" },
+      // },
       // donutChart: {
+      //   "Marketing Expense": 67854,
+      //   "Operational Expense": 99794,
+      //   "Research Expense": 76803,
+      //   "Capital Expense": 557890,
+      // },
+      // pieChart: {
       //   "Marketing Expense": 67854,
       //   "Operational Expense": 99794,
       //   "Research Expense": 76803,
@@ -78,7 +84,7 @@ const Home = () => {
   const [botTyping, setBotTyping] = useState(false);
   const [userTyping, setUserTyping] = useState(false);
   const [chatIDCounter, setChatIDCounter] = useState(1);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [viewMoreState, setViewMoreState] = useState({
     id: 0,
     count: 10,
@@ -311,7 +317,7 @@ const Home = () => {
           fontWeight: "500",
           position: "bottom",
           letterSpacing: "10px",
-          horizontalAlign: "left",
+          horizontalAlign: "center",
           labels: {
             colors: darkMode ? "#fff" : "#000",
           },
@@ -414,7 +420,7 @@ const Home = () => {
           fontWeight: "500",
           position: "bottom",
           letterSpacing: "10px",
-          horizontalAlign: "left",
+          horizontalAlign: "center",
           labels: {
             colors: darkMode ? "#fff" : "#000",
           },
@@ -462,6 +468,11 @@ const Home = () => {
         style={{
           width: "100%",
           margin: "5px 0px",
+          padding: "5px 0px",
+          borderRadius: "6px",
+          background: darkMode
+            ? "rgba(60, 82, 178, 0.20)"
+            : "rgb(11 92 172 / 5%)",
         }}
       >
         <Chart
@@ -712,7 +723,7 @@ const Home = () => {
           className="chatscreen-content"
           ref={chatScreenContent}
           style={{
-            background: darkMode ? "#151826" : "",
+            background: darkMode ? "#030C1A" : "",
           }}
         >
           {chat.map((chatContent, index) => {
@@ -748,7 +759,18 @@ const Home = () => {
                           chatContent.sender == "bot" ? "0px" : "",
                         borderTopRightRadius:
                           chatContent.sender == "user" ? "0px" : "",
-                        background: darkMode ? "#4D38A2" : "#2c3880",
+                        background: darkMode
+                          ? chatContent.sender == "bot"
+                            ? "rgb(58 91 238 / 28%)"
+                            : "#0E59C7"
+                          : chatContent.sender == "bot"
+                          ? "#2c3880"
+                          : "rgb(2 78 145)",
+
+                        textAlign:
+                          chatContent.sender == "bot" ? "left" : "right",
+                        paddingLeft: chatContent.sender == "bot" ? "12px" : "",
+                        paddingRight: chatContent.sender == "bot" ? "" : "12px",
                       }}
                     >
                       {chatContent.msg}
@@ -1042,7 +1064,7 @@ const Home = () => {
           className="chatscreen-typing-container"
           style={{
             justifyContent: botTyping ? "flex-start" : "flex-end",
-            background: darkMode ? "#151826" : "none",
+            background: darkMode ? "#030C1A" : "none",
           }}
         >
           {botTyping ? (
