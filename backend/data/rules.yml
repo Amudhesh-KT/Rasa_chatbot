@@ -192,21 +192,21 @@ rules:
 
 # ************************************* ticket raising rules *********************************************************
 
-- rule: Activate ticket Form
-  steps:
-  - intent: inform
-  - action: simple_ticket_form
-  - active_loop: simple_ticket_form
+# - rule: Activate ticket Form
+#   steps:
+#   - intent: inform
+#   - action: simple_ticket_form
+#   - active_loop: simple_ticket_form
 
-- rule: Submit ticket Form
-  condition:
-  - active_loop: simple_ticket_form
-  steps:
-  - action: simple_ticket_form
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: utter_ticket_slots
+# - rule: Submit ticket Form
+#   condition:
+#   - active_loop: simple_ticket_form
+#   steps:
+#   - action: simple_ticket_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_ticket_slots
 
 # ************************************* ticket raising rules *********************************************************
 
@@ -332,3 +332,78 @@ rules:
   - action: Expense_linechart_action
 
 # **************************************Expense over the years line chart  *****************************************************
+
+
+
+
+
+
+
+
+
+# ************************************************* fetching pending approved and rejected pr *********************************************
+
+
+- rule: fetching pending pr from mongo DB
+  steps:
+  - intent: Pending_pr_intent
+  - action: Pending_pr_action
+
+
+- rule: fetching approved pr from mongo DB
+  steps:
+  - intent: Approved_pr_intent
+  - action: Approved_pr_action
+
+
+- rule: fetching rejected pr from mongo DB
+  steps:
+  - intent: Rejected_pr_intent
+  - action: Rejected_pr_action
+
+# ************************************************* fetching pending approved and rejected pr *********************************************
+
+
+
+# ************************************ pr and item description *********************************************************************
+
+
+- rule: Give list of PR items when user gives prnumber
+  steps:
+  - intent: prrequestno
+  - action: action_pr_items
+
+- rule: Give PR Item Description when user gives pr item number
+  steps:
+  - intent: pritems
+  - action: action_pr_item_desc
+
+
+# ************************************ pr and item description *********************************************************************
+
+
+# ************************************ pr approval **********************************************************************************
+
+
+- rule: approving pr in the mongo DB
+  steps:
+  - intent: pr_approval_intent
+  - action: pr_approval_action
+
+
+
+
+# ************************************ pr approval **********************************************************************************
+
+
+
+# ************************************ pr rejection **********************************************************************************
+
+
+- rule: rejecting pr in the mongo DB
+  steps:
+  - intent: pr_rejection_intent
+  - action: pr_rejection_action
+
+
+# ************************************ pr rejection **********************************************************************************

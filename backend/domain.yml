@@ -70,6 +70,14 @@ intents:
   - Expense_linechart_intent
 
 
+  - Pending_pr_intent
+  - Approved_pr_intent
+  - Rejected_pr_intent
+
+  - pr_approval_intent
+  - pr_rejection_intent
+
+
 
 actions:
   - action_show_time
@@ -134,6 +142,13 @@ actions:
   - Expense_linechart_action
 
 
+  - Pending_pr_action
+  - Approved_pr_action
+  - Rejected_pr_action
+
+
+  - pr_approval_action
+  - pr_rejection_action
 
 
 # ************************************************ Ticket form ***************************************************
@@ -370,10 +385,6 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
-
-  utter_infoabtcomp:
-  - text: "Founded in 2005, Kaar Technologies is a global IT firm focussed on providing SAP services like SAP ERP Implementation, SAP Upgrade, SAP Rollout, SAP module implementation and SAP Support Services for different verticals in the industry like Oil & Gas, Petrochemicals, Manufacturing, Public Sectors, Engineering & Construction, Transportation, Education, Healthcare, Media and FMCG. With a strong base of 750 SAP associates and through many successful ventures and partnerships, Kaar has completed over 1000 SAP projects and worked with many reputed organizations world over. Kaar Tech has expanded its workforce to over 1200 employees and has developed five proprietary solutions, namely KEBS, KTern.AI, KUPEX, PMPA, and CPS. The company's motto, 'In Pursuit of Excellence,' is reflected in its 25+ SAP Awards for Delivery Excellence in over 15 global locations, where they provide SAP Digital Transformation Consultations and Services.
-Kaar Tech's portfolio of solutions includes Cloud, Analytics, IoT, Blockchain, RPA, AI/ML, ERP, Supply Chain, HCM, Procurement, and Mobility solutions, all of which have been pioneered by leveraging SAP's digital offerings and the company's indigenous innovations"
 
   utter_submit:
   - text: Ticket has been raised!

@@ -643,9 +643,9 @@ nlu:
     - Is there a policy for overtime or time off in lieu of overtime?
     - Are there any restrictions on working outside of regular office hours?
     - What is the process for addressing issues or discrepancies with timesheets?
-# ************************************* Polices intents *********************************************************
+#************************************* Polices intents *********************************************************
 
-#  ************************************ Ticket intents **********************************************************
+#************************************ Ticket intents **********************************************************
 - intent: raise_ticket
   examples: |
     - i'd like to like to raise a ticket
@@ -675,7 +675,6 @@ nlu:
     - [Printer](hardware_type)
     - [Scanner](hardware_type)
     - [scanner](hardware_type)
-
     - [Hardwaree](ticket_type)
     - [Hardwarre](ticket_type)
     - [Hardw](ticket_type)
@@ -684,7 +683,6 @@ nlu:
     - [Ha](ticket_type)
     - [H](ticket_type)
     - [ardware](ticket_type)
-
     - [hardwaree](ticket_type)
     - [hardwarre](ticket_type)
     - [hardw](ticket_type)
@@ -693,7 +691,6 @@ nlu:
     - [ha](ticket_type)
     - [h](ticket_type)
     - [ardware](ticket_type)
-
     - [Softwaree](ticket_type)
     - [Softwar](ticket_type)
     - [Softwa](ticket_type)
@@ -704,7 +701,6 @@ nlu:
     - [Sof](ticket_type)
     - [So](ticket_type)
     - [S](ticket_type)
-
     - [softwaree](ticket_type)
     - [softwar](ticket_type)
     - [softwa](ticket_type)
@@ -715,8 +711,6 @@ nlu:
     - [sof](ticket_type)
     - [so](ticket_type)
     - [s](ticket_type)
-
-
     - [Monitorr](hardware_type)
     - [Monitorrr](hardware_type)
     - [Monito](hardware_type)
@@ -725,7 +719,6 @@ nlu:
     - [Mon](hardware_type)
     - [Mo](hardware_type)
     - [M](hardware_type)
-
     - [monitorr](hardware_type)
     - [monitorrr](hardware_type)
     - [monito](hardware_type)
@@ -734,7 +727,6 @@ nlu:
     - [mon](hardware_type)
     - [mo](hardware_type)
     - [m](hardware_type)
-
     - [keyboard](hardware_type)
     - [keybrd](hardware_type)
     - [keybord](hardware_type)
@@ -748,7 +740,6 @@ nlu:
     - [kyboard](hardware_type)
     - [kybd](hardware_type)
     - [keyboardd](hardware_type) 
-
     - [Keyboard](hardware_type)
     - [Keybrd](hardware_type)
     - [Keybord](hardware_type)
@@ -762,7 +753,6 @@ nlu:
     - [Kyboard](hardware_type)
     - [Kybd](hardware_type)
     - [Keyboardd](hardware_type) 
-
     - [mousee](hardware_type)
     - [mouse](hardware_type)
     - [muose](hardware_type)
@@ -770,7 +760,6 @@ nlu:
     - [muse](hardware_type)
     - [mse](hardware_type)
     - [mso](hardware_type)
-
     - [Mousee](hardware_type)
     - [Mouse](hardware_type)
     - [Muose](hardware_type)
@@ -778,7 +767,6 @@ nlu:
     - [Muse](hardware_type)
     - [Mse](hardware_type)
     - [Mso](hardware_type)
-
     - [printer](hardware_type)
     - [printerr](hardware_type)
     - [printeer](hardware_type)
@@ -789,7 +777,6 @@ nlu:
     - [prtr](hardware_type)
     - [printor](hardware_type)
     - [prentor](hardware_type)
-
     - [Printer](hardware_type)
     - [Printerr](hardware_type)
     - [Printeer](hardware_type)
@@ -800,7 +787,6 @@ nlu:
     - [Prtr](hardware_type)
     - [Printor](hardware_type)
     - [Prentor](hardware_type)
-
     - [Scanner](hardware_type)
     - [Scan](hardware_type)
     - [Scnner](hardware_type)
@@ -810,7 +796,6 @@ nlu:
     - [Scner](hardware_type)
     - [Scnr](hardware_type)
     - [Scr](hardware_type)
-
     - i want to raise a [hardwaree](ticket_type) ticket for [Monitorr](hardware_type)
     - i want to raise a [hardwaree](ticket_type) ticket for [Monitorrr](hardware_type)
     - i want to raise a [hardwaree](ticket_type) ticket for [Monito](hardware_type)
@@ -875,7 +860,6 @@ nlu:
     - i want to raise a [ardware](ticket_type) ticket for [Mon](hardware_type)
     - i want to raise a [ardware](ticket_type) ticket for [Mo](hardware_type)
     - i want to raise a [ardware](ticket_type) ticket for [M](hardware_type)
-
     - can you raise a [hardwaree](ticket_type) ticket for [Monitorr](hardware_type)
     - can you raise a [hardwaree](ticket_type) ticket for [Monitorrr](hardware_type)
     - can you raise a [hardwaree](ticket_type) ticket for [Monito](hardware_type)
@@ -1005,7 +989,6 @@ nlu:
     - raise me a [ardware](ticket_type) ticket for [Mon](hardware_type)
     - raise me a [ardware](ticket_type) ticket for [Mo](hardware_type)
     - raise me a [ardware](ticket_type) ticket for [M](hardware_type)
-
     - raise [hardwaree](ticket_type) ticket for [Monitorr](hardware_type)
     - raise [hardwaree](ticket_type) ticket for [Monitorrr](hardware_type)
     - raise [hardwaree](ticket_type) ticket for [Monito](hardware_type)
@@ -1070,7 +1053,6 @@ nlu:
     - raise [ardware](ticket_type) ticket for [Mon](hardware_type)
     - raise [ardware](ticket_type) ticket for [Mo](hardware_type)
     - raise [ardware](ticket_type) ticket for [M](hardware_type)
-
     - raise a ticket for [Monitorr](hardware_type) [hardwaree](ticket_type)
     - raise a ticket for [Monitorrr](hardware_type) [hardwaree](ticket_type)
     - raise a ticket for [Monito](hardware_type) [hardwaree](ticket_type)
@@ -1135,7 +1117,6 @@ nlu:
     - raise a ticket for [Mon](hardware_type) [ardware](ticket_type)
     - raise a ticket for [Mo](hardware_type) [ardware](ticket_type)
     - raise a ticket for [M](hardware_type) [ardware](ticket_type)
-
     - [hardwaree](ticket_type) [Monitorr](hardware_type)
     - [hardwaree](ticket_type) [Monitorrr](hardware_type)
     - [hardwaree](ticket_type) [Monito](hardware_type)
@@ -1200,7 +1181,6 @@ nlu:
     - [ardware](ticket_type) [Mon](hardware_type)
     - [ardware](ticket_type) [Mo](hardware_type)
     - [ardware](ticket_type) [M](hardware_type)
-
     - [Monitorr](hardware_type) [hardwaree](ticket_type)
     - [Monitorrr](hardware_type) [hardwaree](ticket_type)
     - [Monito](hardware_type) [hardwaree](ticket_type)
@@ -1265,8 +1245,6 @@ nlu:
     - [Mon](hardware_type) [ardware](ticket_type)
     - [Mo](hardware_type) [ardware](ticket_type)
     - [M](hardware_type) [ardware](ticket_type)
-
-
     - [keyboard](hardware_type) [hardwaree](ticket_type)
     - [hardwaree](ticket_type) [keyboard](hardware_type)
     - raise a ticket for [keyboard](hardware_type) [hardwaree](ticket_type) 
@@ -2203,7 +2181,6 @@ nlu:
     - can you raise a [ardware](ticket_type) ticket for [keyboardd](hardware_type)
     - raise a [ardware](ticket_type) ticket for [keyboardd](hardware_type)
     - i want to raise a [ardware](ticket_type) ticket for [keyboardd](hardware_type)
-
     - [mousee](hardware_type) [hardwaree](ticket_type)
     - [hardwaree](ticket_type) [mousee](hardware_type)
     - raise a ticket for [mousee](hardware_type) [hardwaree](ticket_type) 
@@ -3429,8 +3406,6 @@ nlu:
     - can you raise a [ardware](ticket_type) ticket for [prentor](hardware_type)
     - raise a [ardware](ticket_type) ticket for [prentor](hardware_type)
     - i want to raise a [ardware](ticket_type) ticket for [prentor](hardware_type)
-
-
     - [scanner](hardware_type) [hardwaree](ticket_type)
     - [hardwaree](ticket_type) [scanner](hardware_type)
     - raise a ticket for [scanner](hardware_type) [hardwaree](ticket_type) 
@@ -4081,10 +4056,10 @@ nlu:
     - i want to raise a [ardware](ticket_type) ticket for [scr](hardware_type)
 
 
-#  ************************************ Ticket intents **********************************************************
+ #************************************ Ticket intents **********************************************************
 
 
-# **************************************NUMBER WITH ITEM SENTENCE INPUT*****************************
+#**************************************NUMBER WITH ITEM SENTENCE INPUT*****************************
 
 - intent: Pr_with_item
   examples: |
@@ -4107,7 +4082,6 @@ nlu:
     - purchase reqn no is [12345678](pr_number) purch reqn item no is [124](pr_itemnumber)
     - purch req [12345678](pr_number) purch req item number [124](pr_itemnumber)
     - purchase requisition is [12345678](pr_number) purchase requisition item number is [124](pr_itemnumber)
-    
     - purchase requisition number [1234567890](pr_number) purchase requisition item [123](pr_itemnumber)
     - purchase requisition number [1234567890](pr_number) purchase requisition itm[123](pr_itemnumber)
     - purchase requisition num [1234567890](pr_number) purchase requisition item [123](pr_itemnumber)
@@ -4992,7 +4966,6 @@ nlu:
   examples : |
     - expense [2018](expense_year) category [Marketing Expense](marketing_expense)
     - expense [2020](expense_year) category [marketing expense](marketing_expense) 
-
     - year [2020](expense_year) [marketting expense](marketing_expense)
     - [marketting expense](marketing_expense) year [2019](expense_year)
     - expense of [marketting expense](marketing_expense) of year [2021](expense_year)
@@ -5263,7 +5236,6 @@ nlu:
   examples : |
     - expense [2018](expense_year) category [Operational Expense](operation_expense)
     - expense [2020](expense_year) category [Operational expense](operation_expense) 
-
     - year [2020](expense_year) [operational expense](operation_expense)
     - [operational expense](operation_expense) year [2019](expense_year)
     - expense of [operational expense](operation_expense) of year [2021](expense_year)
@@ -5581,7 +5553,6 @@ nlu:
   examples : |
     - expense [2018](expense_year) category [Reasearch Expense](research_expense)
     - expense [2020](expense_year) category [research expense](research_expense) 
-
     - year [2020](expense_year) [Research expence](research_expense)
     - [Research expence](research_expense) year [2019](expense_year)
     - expense of [Research expence](research_expense) of year [2021](expense_year)
@@ -6170,7 +6141,6 @@ nlu:
   examples : |
     - expense [2018](expense_year) category [Tax Expense](tax_expense)
     - expense [2020](expense_year) category [tax expense](tax_expense) 
-
     - year [2020](expense_year) [tax expence](tax_expense)
     - [tax expence](tax_expense) year [2019](expense_year)
     - expense of [tax expence](tax_expense) of year [2021](expense_year)
@@ -6645,7 +6615,6 @@ nlu:
   examples : |
     - revenue [2018](revenue_year) category [Contracts Revenue](contracts_revenue)
     - revenue [2020](revenue_year) category [contracts revenue](contracts_revenue) 
-    
     - revenue [2020](revenue_year) category [contracts revenue](contracts_revenue)
     - year [2020](revenue_year) [contracts revenue](contracts_revenue)
     - [contracts revenue](contracts_revenue) year [2019](revenue_year)
@@ -6964,7 +6933,6 @@ nlu:
   examples : |
     - revenue [2018](revenue_year) category [Contracts Revenue](subscription_revenue)
     - revenue [2020](revenue_year) category [contracts revenue](subscription_revenue)
-
     - year [2020](revenue_year) [subscription revenue](subscription_revenue)
     - [subscription revenue](subscription_revenue) year [2019](revenue_year)
     - revenue of [subscription revenue](subscription_revenue) of year [2021](revenue_year)
@@ -7283,7 +7251,6 @@ nlu:
   examples : |
     - revenue [2018](revenue_year) category [Commisions Revenue](commision_revenue)
     - revenue [2020](revenue_year) category [commisions revenue](commision_revenue)
-
     - year [2020](revenue_year) [commisions revenue](commision_revenue)
     - [commisions revenue](commision_revenue) year [2019](revenue_year)
     - revenue of [commisions revenue](commision_revenue) of year [2021](revenue_year)
@@ -7602,7 +7569,6 @@ nlu:
   examples : |
     - revenue [2018](revenue_year) category [Sales Revenue](sales_revenue)
     - revenue [2020](revenue_year) category [sales revenue](sales_revenue)
-
     - year [2020](revenue_year) [sales of products revenue](sales_revenue)
     - [sales of products revenue](sales_revenue) year [2019](revenue_year)
     - revenue of [sales of products revenue](sales_revenue) of year [2021](revenue_year)
@@ -7946,7 +7912,6 @@ nlu:
   examples : |
     - revenue [2018](revenue_year) category [Sales Revenue](consulting_revenue)
     - revenue [2020](revenue_year) category [sales revenue](consulting_revenue)
-
     - year [2020](revenue_year) [consulting revenue](consulting_revenue)
     - [consulting revenue](consulting_revenue) year [2019](revenue_year)
     - revenue of [consulting revenue](consulting_revenue) of year [2021](revenue_year)
@@ -8608,7 +8573,6 @@ nlu:
 
 - intent: Leave_balance_intent
   examples : |
-  
     - Display my current leave balance
     - I would like to know how much leave I have left
     - show me my remaining leave days?
@@ -8868,7 +8832,8 @@ nlu:
     - show me annual expn
     - show me annual expn spent
     - annual comparision of expn
-    - could you compare the annual expn- show me overall expense
+    - could you compare the annual expn
+    - show me overall expense
     - show me overall expense spent
     - overall comparision of expense
     - could you compare the overall expense
@@ -8950,9 +8915,9 @@ nlu:
     - could you compare the annual expn
     
     
-# ************************************** Expense over the years line chart  *****************************************************
+#************************************** Expense over the years line chart  *****************************************************
 
-# ******************************************* Pending pr ***********************************************************************
+#******************************************* Pending pr ***********************************************************************
 
 - intent: Pending_pr_intent
   examples: |
@@ -8967,7 +8932,6 @@ nlu:
     - what are pr are pending
     - get me the pending pr
     - can you get me the pending pr 
-
     - Show me pending purchase requisition
     - Show me my pending purchase requisition
     - Display the pending
@@ -8979,7 +8943,6 @@ nlu:
     - what are purchase requisition are pending
     - get me the pending purchase requisition
     - can you get me the pending purchase requisition 
-
     - Show me pending Purchase Requisition
     - Show me my pending Purchase Requisition
     - Display the pending
@@ -8991,13 +8954,11 @@ nlu:
     - what are Purchase Requisition are pending
     - get me the pending Purchase Requisition
     - can you get me the pending Purchase Requisition 
-
-
     - Show me pending PR
     - Show me my pending PR
     - Display the pending
     - pending PR
-    - show me the PR to apPRove
+    - show me the PR to approve
     - show me pending PR
     - can you show me the pending PR
     - what are all the pending PR 
@@ -9005,4 +8966,219 @@ nlu:
     - get me the pending PR
     - can you get me the pending PR 
 
-  # ******************************************* Pending pr ***********************************************************************
+# ******************************************* Pending pr ***********************************************************************
+
+
+
+
+# ******************************************* approved pr ***********************************************************************
+
+
+- intent: Approved_pr_intent
+  examples: |
+    - Show me approved PR
+    - Show me my approved PR
+    - Display the approved
+    - approved PR
+    - show me the PR to apPRove
+    - show me approved PR
+    - can you show me the approved PR
+    - what are all the approved PR     
+    - Show me approved pr
+    - Show me my approved pr
+    - Display the approved
+    - approved pr
+    - show me the pr to approve
+    - show me approved purchase requisition
+    - can you show me the approved pr
+    - what are all the approved pr 
+    - what are pr are approved
+    - get me the approved pr
+    - can you get me the approved pr 
+    - Show me approved purchase requisition
+    - Show me my approved purchase requisition
+    - Display the approved
+    - approved purchase requisition
+    - show me the purchase requisition to appurchase requisitionove
+    - show me approved purchase requisition
+    - can you show me the approved purchase requisition
+    - what are all the approved purchase requisition 
+    - what are purchase requisition are approved
+    - get me the approved purchase requisition
+    - can you get me the approved purchase requisition 
+    - Show me approved Purchase Requisition
+    - Show me my approved Purchase Requisition
+    - Display the approved
+    - approved Purchase Requisition
+    - show me the Purchase Requisition to apPurchase Requisitionove
+    - show me approved Purchase Requisition
+    - can you show me the approved Purchase Requisition
+    - what are all the approved Purchase Requisition 
+    - what are Purchase Requisition are approved
+    - get me the approved Purchase Requisition
+    - can you get me the approved Purchase Requisition 
+    - Show me approved PR
+    - Show me my approved PR
+    - Display the approved
+    - approved PR
+    - show me the PR to approve
+    - show me approved PR
+    - can you show me the approved PR
+    - what are all the approved PR 
+    - what are PR are approved
+    - get me the approved PR
+    - can you get me the approved PR 
+    - what are PR are approved
+    - get me the approved PR
+    - can you get me the approved PR 
+
+
+
+# ******************************************* approved pr ***********************************************************************
+
+
+# ******************************************* rejected pr ***********************************************************************
+
+
+- intent: Rejected_pr_intent
+  examples: |
+    - Show me rejected PR
+    - Show me my rejected PR
+    - Display the rejected
+    - rejected PR
+    - show me the PR to apPRove
+    - show me rejected PR
+    - can you show me the rejected PR
+    - what are all the rejected PR     
+    - Show me rejected pr
+    - Show me my rejected pr
+    - Display the rejected
+    - rejected pr
+    - show me the pr to approve
+    - show me rejected purchase requisition
+    - can you show me the rejected pr
+    - what are all the rejected pr 
+    - what are pr are rejected
+    - get me the rejected pr
+    - can you get me the rejected pr 
+    - Show me rejected purchase requisition
+    - Show me my rejected purchase requisition
+    - Display the rejected
+    - rejected purchase requisition
+    - show me the purchase requisition to appurchase requisitionove
+    - show me rejected purchase requisition
+    - can you show me the rejected purchase requisition
+    - what are all the rejected purchase requisition 
+    - what are purchase requisition are rejected
+    - get me the rejected purchase requisition
+    - can you get me the rejected purchase requisition 
+    - Show me rejected Purchase Requisition
+    - Show me my rejected Purchase Requisition
+    - Display the rejected
+    - rejected Purchase Requisition
+    - show me the Purchase Requisition to apPurchase Requisitionove
+    - show me rejected Purchase Requisition
+    - can you show me the rejected Purchase Requisition
+    - what are all the rejected Purchase Requisition 
+    - what are Purchase Requisition are rejected
+    - get me the rejected Purchase Requisition
+    - can you get me the rejected Purchase Requisition 
+    - Show me rejected PR
+    - Show me my rejected PR
+    - Display the rejected
+    - rejected PR
+    - show me the PR to apPRove
+    - show me rejected PR
+    - can you show me the rejected PR
+    - what are all the rejected PR 
+    - what are PR are rejected
+    - get me the rejected PR
+    - can you get me the rejected PR 
+    - what are PR are rejected
+    - get me the rejected PR
+    - can you get me the rejected PR 
+
+
+
+# ******************************************* rejected pr ***********************************************************************
+
+
+# ************************************ pr approval **********************************************************************************
+
+- intent: pr_approval_intent
+  examples: |
+    - approve pr [10009092](pr_number)
+    - approve pr [10009092](pr_number)
+    - approve pr [10009092](pr_number)
+    - approve pr [10009092](pr_number)
+    - approve pr [10009092](pr_number)
+    - approve pr [10009092](pr_number)
+    - approve pr [10009092](pr_number)
+    - approve pr [10009092](pr_number)
+    - Approve pr [10009092](pr_number)
+    - Approve pr [10009092](pr_number)
+    - Approve pr [10009092](pr_number)
+    - Approve pr [10009092](pr_number)
+    - Approve pr [10009092](pr_number)
+    - Approve pr [10009092](pr_number)
+    - Approve pr [10009092](pr_number)
+    - Approve pr [10009092](pr_number)
+    - approve PR [10009092](pr_number)
+    - approve PR [10009092](pr_number)
+    - approve PR [10009092](pr_number)
+    - approve PR [10009092](pr_number)
+    - approve PR [10009092](pr_number)
+    - approve PR [10009092](pr_number)
+    - approve PR [10009092](pr_number)
+    - approve PR [10009092](pr_number)
+    - Approve PR [10009092](pr_number)
+    - Approve PR [10009092](pr_number)
+    - Approve PR [10009092](pr_number)
+    - Approve PR [10009092](pr_number)
+    - Approve PR [10009092](pr_number)
+    - Approve PR [10009092](pr_number)
+    - Approve PR [10009092](pr_number)
+    - Approve PR [10009092](pr_number)
+
+
+# ************************************ pr approval **********************************************************************************
+
+
+# ************************************ pr rejection **********************************************************************************
+
+- intent: pr_rejection_intent
+  examples: |
+    - reject pr [10009092](pr_number)
+    - reject pr [10009092](pr_number)
+    - reject pr [10009092](pr_number)
+    - reject pr [10009092](pr_number)
+    - reject pr [10009092](pr_number)
+    - reject pr [10009092](pr_number)
+    - reject pr [10009092](pr_number)
+    - reject pr [10009092](pr_number)
+    - Reject pr [10009092](pr_number)
+    - Reject pr [10009092](pr_number)
+    - Reject pr [10009092](pr_number)
+    - Reject pr [10009092](pr_number)
+    - Reject pr [10009092](pr_number)
+    - Reject pr [10009092](pr_number)
+    - Reject pr [10009092](pr_number)
+    - Reject pr [10009092](pr_number)
+    - reject PR [10009092](PR_number)
+    - reject PR [10009092](PR_number)
+    - reject PR [10009092](PR_number)
+    - reject PR [10009092](PR_number)
+    - reject PR [10009092](PR_number)
+    - reject PR [10009092](PR_number)
+    - reject PR [10009092](PR_number)
+    - reject PR [10009092](PR_number)
+    - Reject PR [10009092](PR_number)
+    - Reject PR [10009092](PR_number)
+    - Reject PR [10009092](PR_number)
+    - Reject PR [10009092](PR_number)
+    - Reject PR [10009092](PR_number)
+    - Reject PR [10009092](PR_number)
+    - Reject PR [10009092](PR_number)
+    - Reject PR [10009092](PR_number)
+
+# ************************************ pr rejection **********************************************************************************

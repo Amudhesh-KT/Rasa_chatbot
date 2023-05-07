@@ -53,6 +53,8 @@ from actions.api import prlist, pritems, pritemdetails, polist, poitems, poitemd
 ALLOWED_TICKET_TYPES = ["software", "hardware"]
 ALLOWED_HARDWARE_TYPES = ["monitor", "keyboard", "mouse", "printer", "scanner"]
 
+Pending_PR_Flag = 0
+
 prno = ""
 pritemno = ""
 pono = ""
@@ -128,99 +130,99 @@ class ActionCompanyPolicy(Action):
     ) -> List[Dict[Text, Any]]:
         policies = [
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/ESi_WHpAvMxGjlr_bh1f8Q0B3sA-bvcA2MOVpvrlOn2Pww?e=Wxln2N",
+                "link": "https://drive.google.com/file/d/1WN8JCQQcwLI8aQQu7SAKNbRTmhJT1MU9/view?usp=sharing",
                 "tag": "Corporate attire",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EYx8kvvCRpRAkurURg-yj2kB5xQSSg4a80GBF17us8-LZg?e=aTc8f0",
+                "link": "https://drive.google.com/file/d/1a3wu2-svZpK4i9OuPOk0lfX2L51OxF5B/view?usp=sharing",
                 "tag": "Over-time",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EZg_FFmCnPdHhAKGUJHR1goBesQgE1-1biuchTx0bVps2w?e=TlYUHv",
+                "link": "https://drive.google.com/file/d/1JQgNNogtb0iQNJJdNmfQoCz8HpFG3y0t/view?usp=sharing",
                 "tag": "Leave",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EYWZDRBdlKpLtZUOcFhZP28BqbdauU7cQmYlShDnmU5cOA?e=042DZo",
+                "link": "https://drive.google.com/file/d/1QlgqqKBTYCzuzOQkj9aK5yrICrNc7OCB/view?usp=sharing",
                 "tag": "Probation",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EUhpOqfZy2tJgz2yahSHUgABOHXhOT-_xhzypM9n7I3vxw?e=hVMbGG",
+                "link": "https://drive.google.com/file/d/1AFfH7RyDgT_W_vlJXmQSd2mkBdJ6HcMZ/view?usp=sharing",
                 "tag": "Travel",
             },
             {
-                "link": "httpshttps://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EYgbC92aDftBpQuSK5y-yXMBBXvboXfZYciY7aWbIcS1yg?e=Fy7OKD",
+                "link": "https://drive.google.com/file/d/1ne15AM8qRSok5jgXzprmLlyi4Sc9uVvW/view?usp=sharing",
                 "tag": "Additional billing hours",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EUSF6ead6W9Pp5OeW7rrNaYB1oj9HBbsh6-W0_Im2RLssw?e=Q5ovc8",
+                "link": "https://drive.google.com/file/d/1NwFYLsfGN5iY98O2ZYaiidvJWfQhqlzl/view?usp=sharing",
                 "tag": "Expense management system",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20FTF%20Buckets%20Policy.pdf?csf=1&web=1&e=BYTeTJ",
+                "link": "https://drive.google.com/file/d/1ebnCwddMrSVWMgaokKcXbZu8vckbN21O/view?usp=sharing",
                 "tag": "Kaar FTF Bucket",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EVtNosoO381Bu5t4A5BsT8sBrog2CRJFJ44lOidcb7-c5g?e=Ti2zHk",
+                "link": "https://drive.google.com/file/d/1rENdrPATmdhZDNRi8aE34IeiGME4Yi2d/view?usp=sharing",
                 "tag": "KICC",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EQCFToagM5lFmddEuUC-U14BrdJUICBfWFwwHnEx6Lih-Q?e=yupAcJ",
+                "link": "https://drive.google.com/file/d/1RzYf-ULkVdHyfNQ7zVRZwmS_jXNRqtos/view?usp=sharing",
                 "tag": "Reimbursement",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EXI8zU3Kj2pOjYrEH44qPqkBiy-GFNxEcZuJ87tYMEBXEg?e=T7l4zp",
+                "link": "https://drive.google.com/file/d/1ez3Ty0p6sotBWw8F-tI5AdoQ7WVAFOXe/view?usp=sharing",
                 "tag": "Interview panel",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EaB7MyQOKwlLhrJH7fJhrPQBwD_74V4wnC7IGXtjETThDQ?e=vip6P9",
+                "link": "https://drive.google.com/file/d/14h4ehEaKBb01lMs9c1bwWEc3Qjbc42xU/view?usp=sharing",
                 "tag": "WFH",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/ER40ujNgMQpBlLIqY6AviiQBITsG_LdmHawXyDoZlPku7Q?e=KFolru",
+                "link": "https://drive.google.com/file/d/1dPxZ0xyZ0QgoqqQII1hv83-nemWHjZcL/view?usp=sharing",
                 "tag": "Appraisal",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/Eac-zip92x5Lq1TVkL2-ZlkB0xyna0mZVzRG0iChVTUO7A?e=QnV6Ae",
+                "link": "https://drive.google.com/file/d/1U_ZBnpyB8EyGyTdVSMe5EXNxqJ7wwyJz/view?usp=sharing",
                 "tag": "Certification",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EdlLrrAywrNArTomqtnoymkBv-OPnqHruO2zXDCuZNvpTg?e=FecsJF",
+                "link": "https://drive.google.com/file/d/1gTvG4ZxM8_1XvWDJzQkKQcxtWcZa3tmM/view?usp=sharing",
                 "tag": "Deputation",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EfYFr4748h5IpwUHl2qcjNABb4P8sqc0HUfG2_qaaIHVfw?e=b3Bfh0",
+                "link": "https://drive.google.com/file/d/1Q7k0dlaGeE4RwuDJmhou8lC1Fz420aZ4/view?usp=sharing",
                 "tag": "Training",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EZySyUPBZ5tLhhLDQkdmlrYBogz656RfcwU1SbNFXPjByQ?e=fc7bC3",
+                "link": "https://drive.google.com/file/d/1DW_z38VuTN6S7Ya5wsHJmAtVpLw-aYaY/view?usp=sharing",
                 "tag": "Working hours",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EUbZHQJAFhxGvU3clYsRSrwBLmKrqfGTLwRn-cPuqUoX-A?e=FjeReg",
+                "link": "https://drive.google.com/file/d/1KO_G-prADGnMkscnV-62O_bStdcoDYus/view?usp=sharing",
                 "tag": "Employee soft loan",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EeSvQDCEKCRGpPro9DRcwT8BS95YaCBjQY66mrWJq29ApQ?e=mecyro",
+                "link": "https://drive.google.com/file/d/1-vQz5YBS0xY6hISkpMTftgoPOELZOSW1/view?usp=sharing",
                 "tag": "Laptop damage",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EQOzE6LeEdRMrWMV6iumfj0BfBXXLGApSp6Nm7xhHIOaaA?e=4X1Jy3",
+                "link": "https://drive.google.com/file/d/1KMnDOqCXWXspe4OfbU_y0geCoKmMBOn0/view?usp=sharing",
                 "tag": "Odd hour commute",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/ETNzjOR1pYpIkTDb_oTrQUMBIlev7ka8FXnUdjh-CFDI0A?e=1QbpRK",
+                "link": "https://drive.google.com/file/d/1doYTivXYOEmGczK3crRuXnQgWeEJjRsk/view?usp=sharing",
                 "tag": "Performance appraisal",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EUe8vFJY4DZCtJgkLLWbNU0Boj6jJ5xL7_2WeRQjcy2M_Q?e=LwdOrq",
+                "link": "https://drive.google.com/file/d/1ZqeKmlI1zvQT7vU7vJhJIPn13ClhTVtb/view?usp=sharing",
                 "tag": "R and R",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/EYklvdFgu9RIn559g0hOOjsBEpFG5udHA6V97cPojtPWKA?e=7h7Al9",
+                "link": "https://drive.google.com/file/d/1PLZoBPuZ3rCmbmcGzATk8GzKvamgaE8W/view?usp=sharing",
                 "tag": "Timesheet",
             },
             {
-                "link": "https://kaartechit-my.sharepoint.com/:b:/g/personal/damudhesh_kaartech_com/Ef3_SJq93ClNoroJINdmpKIB-5Kjz28Q_NKtjTWgdP_iCQ?e=rbdKgt",
+                "link": "https://drive.google.com/file/d/1Sd71gERYEpsDXr07daN3C2Q4IlfKOjJ7/view?usp=sharing",
                 "tag": "Remote working",
             },
         ]
@@ -471,7 +473,9 @@ class ActionPRitemDesc(Action):
         # dispatcher.utter_message(text=message)
         send = {
             "msg": "Here is the Details of Purchase Requisition... ",
-            "details": details,
+            "details": {
+                "data":details,"flag":Pending_PR_Flag
+                }
         }
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
@@ -1982,3 +1986,188 @@ class ExpenseOverTheYears(Action):
 
         return []
 # **************************************Expense over the years line chart  *****************************************************
+
+
+
+
+# *************************************** pending approved rejected ************************************************************ 
+
+class PendingPrMongoDB(Action):
+
+    def name(self) -> Text:
+        return "Pending_pr_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        global Pending_PR_Flag 
+        Pending_PR_Flag = 1
+        
+        collection = db["PrStatus"]
+        a = collection.find({'Status':'Pending'})
+
+        pending_pr=[]
+
+        for i in a:
+            pending_pr.append(i['Purchase Requisition Number'])
+
+        print(pending_pr)
+
+        send = {
+            "requests": pending_pr,
+            "msg": "The Pending PR lists are given below. Choose Any one to see PR Items",
+        }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
+
+        return []
+
+
+class ApprovedPrMongoDB(Action):
+
+    def name(self) -> Text:
+        return "Approved_pr_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        collection = db["PrStatus"]
+        a = collection.find({'Status':'Approved'})
+
+        approved_pr=[]
+
+        for i in a:
+            approved_pr.append(i['Purchase Requisition Number'])
+            
+        print(approved_pr)
+
+        send = {
+            "requests": approved_pr,
+            "msg": "The Approved PR lists are given below. Choose Any one to see PR Items",
+        }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
+
+        return []
+    
+
+class RejectedPrMongoDB(Action):
+
+    def name(self) -> Text:
+        return "Rejected_pr_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        collection = db["PrStatus"]
+        a = collection.find({'Status':'Rejected'})
+
+        global Pending_PR_Flag 
+        Pending_PR_Flag = 1
+
+        rejected_pr=[]
+
+        for i in a:
+            rejected_pr.append(i['Purchase Requisition Number'])
+            
+        send = {
+            "requests": rejected_pr,
+            "msg": "The Rejected PR lists are given below. Choose Any one to see PR Items",
+        }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
+
+        dispatcher.utter_message(text=f"rejected pr from mongoDB is working \n {rejected_pr}")
+
+        return []
+    
+
+
+# *************************************** pending approved rejected ************************************************************ 
+
+
+
+# ************************************ pr approval **********************************************************************************
+
+class PendingPrApproval(Action):
+
+    def name(self) -> Text:
+        return "pr_approval_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        prnumber = tracker.get_slot("prnumber")
+
+        collection = db["PrStatus"] 
+
+        # define a query to find the document to update 
+        query = {"Purchase Requisition Number": f"PR {prnumber}"}   
+
+        print(query)
+
+        # define the new values to update 
+        new_values = {"$set": {"Status": "Approved"}} 
+
+        # update the document 
+        result = collection.update_one(query, new_values)
+        
+        print(f"{prnumber}")
+
+        dispatcher.utter_message(text=f"pr {prnumber} has been approved")
+
+        global Pending_PR_Flag 
+        Pending_PR_Flag = 0
+
+        print(Pending_PR_Flag)
+
+        return []
+
+
+# ************************************ pr approval **********************************************************************************
+
+
+# ************************************ pr rejection **********************************************************************************
+
+
+class RejectingPrApproval(Action):
+
+    def name(self) -> Text:
+        return "pr_rejection_action"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        prnumber = tracker.get_slot("prnumber")
+
+        collection = db["PrStatus"] 
+
+        # define a query to find the document to update 
+        query = {"Purchase Requisition Number": f"PR {prnumber}"}   
+
+        print(query)
+
+        # define the new values to update 
+        new_values = {"$set": {"Status": "Rejected"}} 
+
+        # update the document 
+        result = collection.update_one(query, new_values)
+        
+        print(f"{prnumber}")
+
+        dispatcher.utter_message(text=f"pr {prnumber} has been rejected")
+
+        global Pending_PR_Flag 
+        Pending_PR_Flag = 0
+
+        print(Pending_PR_Flag)
+
+        return []
+
+
+# ************************************ pr rejection **********************************************************************************
